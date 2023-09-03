@@ -18,6 +18,5 @@
             <Button Width="150" Padding="0" Click="StartManip">Land Turtle (Back up)</Button>
             
         </StackPanel>
-
     </Grid>
 </Window>

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Security.Principal;
 using System.Windows;
 using System.Windows.Controls;
 

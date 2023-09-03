@@ -9,7 +9,6 @@ namespace FF3Manip
     public class ManipController
     {
         private string savedTimeZone;
-        //private DateFormats dateFormat;
 
         public enum DateFormats
         {
@@ -26,9 +25,7 @@ namespace FF3Manip
             public const string GMT = "GMT Standard Time";
             // Add more as needed - string needs to match output from tzutil.exe /l
         }
-
-
-
+        
         public DateFormats GetDateFormat()
         {
             if (CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern.StartsWith("d"))
@@ -42,7 +39,6 @@ namespace FF3Manip
             }
 
             return DateFormats.YYYYMMDD;
-
         }
 
         private bool GameRunning()
@@ -60,7 +56,6 @@ namespace FF3Manip
 
         public void SetDateTime(Manip targetManip)
         {
-            
             // Set time zone
             string args = "/s \"" + targetManip.TimeZone + "\"";
             Process p = Process.Start("tzutil.exe", args);
@@ -69,6 +64,7 @@ namespace FF3Manip
                 p.WaitForExit();
             }
 
+            // Format strings for use in cmd
             string time = targetManip.Hour + ":" + targetManip.Minute + ":" + targetManip.Second + ".00";
             string date = String.Empty;
 
@@ -127,7 +123,8 @@ namespace FF3Manip
                 await SetDateAsync();
             });
             
-            
+            // Set time every 0.1s
+            // Fast enough to not creep into the next second, but not so fast that we melt CPUs
             Thread.Sleep(100);
             if (!GameRunning())
             {
@@ -140,6 +137,7 @@ namespace FF3Manip
 
         public void RevertTime()
         {
+            // Small buffer to allow the game to launch before reverting
             Thread.Sleep(2000);
             // Revert Time zone
             string args = "/s \"" + savedTimeZone + "\"";
@@ -163,7 +161,5 @@ namespace FF3Manip
                 syncProcess.WaitForExit();
             }
         }
-
     }
-
 }
