@@ -23,6 +23,7 @@ namespace FF3Manip
             public const string UTC = "UTC";
             public const string JST = "Tokyo Standard Time";
             public const string GMT = "GMT Standard Time";
+            public const string CEST = "W. Europe Standard Time";
             // Add more as needed - string needs to match output from tzutil.exe /l
         }
         

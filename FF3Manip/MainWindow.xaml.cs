@@ -20,6 +20,17 @@ namespace FF3Manip
             {
                 { "Altar Cave", ManipList.ManipNames.AltarCave },
                 { "Land Turtle (Back up)", ManipList.ManipNames.LandTurtle },
+                { "Sealed Cave", ManipList.ManipNames.SealedCave},
+                { "Dragon's Peak", ManipList.ManipNames.DragonsPeak},
+                { "Tower of Owen", ManipList.ManipNames.TowerOfOwen},
+                { "Tower of Owen 2", ManipList.ManipNames.TowenOfOwen2},
+                { "Subterranean Lake", ManipList.ManipNames.SubterraneanLake},
+                { "Molten Cave", ManipList.ManipNames.MoltenCave},
+                { "Hein's Castle", ManipList.ManipNames.HeinCastle},
+                { "Cave of Tides", ManipList.ManipNames.CaveOfTides},
+                { "Amur Sewers", ManipList.ManipNames.Sewers},
+                { "Amur", ManipList.ManipNames.Amur},
+                
                 
             };
             
