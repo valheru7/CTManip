@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace FF3Manip
 {
@@ -59,11 +60,13 @@ namespace FF3Manip
         {
             // Set time zone
             string args = "/s \"" + targetManip.TimeZone + "\"";
-            Process p = Process.Start("tzutil.exe", args);
-            if (p != null)
-            {
-                p.WaitForExit();
-            }
+            //Process p = Process.Start("tzutil.exe", args);
+            ProcessStartInfo setTimeZone = new ProcessStartInfo("tzutil.exe", args);
+            setTimeZone.CreateNoWindow = true;
+            setTimeZone.WindowStyle = ProcessWindowStyle.Hidden;
+            Process p = Process.Start(setTimeZone);
+            p.WaitForExitAsync();
+            
 
             // Format strings for use in cmd
             string time = targetManip.Hour + ":" + targetManip.Minute + ":" + targetManip.Second + ".00";
