@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF3Manip"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="200">
+        Title="FF3 Manip" Height="450" Width="200" Background="#92dda1">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
-                    <Setter Property="Margin" Value="0,5,0,0"/> 
+                    <Setter Property="Margin" Value="0,5,0,0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="Green"/>
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
+                
             </StackPanel.Resources>
             
             <Button Width="150" Click="StartManip">Altar Cave</Button>
