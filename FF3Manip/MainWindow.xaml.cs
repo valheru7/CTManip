@@ -18,9 +18,14 @@ namespace FF3Manip
         {
             Dictionary<string, ManipList.ManipNames> inputToManipMap = new Dictionary<string, ManipList.ManipNames>
             {
-                { "Altar Cave", ManipList.ManipNames.AltarCave },
-                { "Land Turtle (Back up)", ManipList.ManipNames.LandTurtle },
-                
+                { "New Game", ManipList.ManipNames.NewGame },
+                { "Rainbow Pudding", ManipList.ManipNames.RainbowPudding },
+                { "Octomammoth", ManipList.ManipNames.Octomammoth },
+                { "Safe Travel", ManipList.ManipNames.SafeTravel },
+                { "Pink Tail", ManipList.ManipNames.PinkTail },
+                { "Mysidia/Ordeals/Zot", ManipList.ManipNames.MysidiaOrdealsZot },
+                { "Lugae/Babil/Rubi", ManipList.ManipNames.LugaeBabilRubi }
+
             };
             
             string? buttonText = (args.Source as Button).Content.ToString(); // Text on the button

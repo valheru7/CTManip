@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF3Manip"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="200">
+        Title="MainWindow" Height="250" Width="200">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel.Resources>
@@ -14,8 +14,13 @@
                 </Style>
             </StackPanel.Resources>
             
-            <Button Width="150" Click="StartManip">Altar Cave</Button>
-            <Button Width="150" Padding="0" Click="StartManip">Land Turtle (Back up)</Button>
+            <Button Width="150" Click="StartManip">New Game</Button>
+            <Button Width="150" Click="StartManip">Rainbow Pudding</Button>
+            <Button Width="150" Click="StartManip">Octomammoth</Button>
+            <Button Width="150" Click="StartManip">Safe Travel</Button>
+            <Button Width="150" Click="StartManip">Pink Tail</Button>
+            <Button Width="150" Click="StartManip">Mysidia/Ordeals/Zot</Button>
+            <Button Width="150" Click="StartManip">Lugae/Babil/Rubi</Button>
             
         </StackPanel>
     </Grid>

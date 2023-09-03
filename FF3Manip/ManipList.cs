@@ -10,27 +10,61 @@ namespace FF3Manip
         {
             manipNameToFunc = new Dictionary<ManipNames, Func<Manip>>
             {
-                {ManipNames.AltarCave, AltarCave},
-                {ManipNames.LandTurtle, LandTurtle},
+                {ManipNames.NewGame, NewGame},
+                {ManipNames.RainbowPudding, RainbowPudding},
+                {ManipNames.Octomammoth, Octomammoth},
+                {ManipNames.SafeTravel, SafeTravel},
+                {ManipNames.PinkTail, PinkTail},
+                {ManipNames.MysidiaOrdealsZot, MysidiaOrdealsZot},
+                {ManipNames.LugaeBabilRubi, LugaeBabilRubi}
                 
             };
         }
         
         public enum ManipNames 
         {
-            AltarCave,
-            LandTurtle
-            
+            NewGame,
+            RainbowPudding,
+            Octomammoth,
+            SafeTravel,
+            PinkTail,
+            MysidiaOrdealsZot,
+            LugaeBabilRubi,
         }
 
-        public Manip AltarCave()
+        public Manip NewGame()
         {
-            return new Manip(ManipController.TimeZones.GMT, 10, 04, 21, 19, 43, 17);
+            return new Manip(ManipController.TimeZones.CEST, 24, 10, 21, 16, 20, 00);
         }
 
-        public Manip LandTurtle()
+        public Manip RainbowPudding()
         {
-            return new Manip(ManipController.TimeZones.ET, 16, 10, 22, 16, 37, 01);
+            return new Manip(ManipController.TimeZones.CEST, 24, 9, 21, 16, 19, 55);
+        }
+        
+        public Manip Octomammoth()
+        {
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 03);
+        }
+        
+        public Manip SafeTravel()
+        {
+            return new Manip(ManipController.TimeZones.CEST, 11, 05, 21, 16, 45, 00);
+        }
+        
+        public Manip PinkTail()
+        {
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 27);
+        }
+        
+        public Manip MysidiaOrdealsZot()
+        {
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 08);
+        }
+        
+        public Manip LugaeBabilRubi()
+        {
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 17);
         }
         
         public Manip GetManipByValue(ManipNames name)
