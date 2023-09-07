@@ -79,16 +79,16 @@ namespace FF3Manip
             switch (GetDateFormat())
             {
                 case DateFormats.DDMMYYYY:
-                    date = targetManip.Day + "-" + targetManip.Month + "-" + targetManip.Year;
+                    date = $"{targetManip.Day}-{targetManip.Month}-{targetManip.Year}";
                     break;
                 case DateFormats.MMDDYYYY:
-                    date = targetManip.Month + "-" + targetManip.Day + "-" + targetManip.Year;
+                    date = $"{targetManip.Month}-{targetManip.Day}-{targetManip.Year}";
                     break;
                 case DateFormats.YYYYMMDD:
-                    date = targetManip.Year + "-" + targetManip.Month + "-" + targetManip.Day;
+                    date = $"{targetManip.Year}-{targetManip.Month}-{targetManip.Day}";
                     break;
             }
-
+            
             TaskCompletionSource<bool> TimeEventHandled;
             TaskCompletionSource<bool> DateEventHandled;
 

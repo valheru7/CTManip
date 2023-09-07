@@ -34,37 +34,37 @@ namespace FF3Manip
 
         public Manip NewGame()
         {
-            return new Manip(ManipController.TimeZones.CEST, 24, 10, 21, 16, 20, 00);
+            return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00);
         }
 
         public Manip RainbowPudding()
         {
-            return new Manip(ManipController.TimeZones.CEST, 24, 9, 21, 16, 19, 55);
+            return new Manip(ManipController.TimeZones.CEST, 24, 9, 2021, 16, 19, 55);
         }
         
         public Manip Octomammoth()
         {
-            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 03);
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 03);
         }
         
         public Manip SafeTravel()
         {
-            return new Manip(ManipController.TimeZones.CEST, 11, 05, 21, 16, 45, 00);
+            return new Manip(ManipController.TimeZones.CEST, 11, 05, 2021, 16, 45, 00);
         }
         
         public Manip PinkTail()
         {
-            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 27);
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 27);
         }
         
         public Manip MysidiaOrdealsZot()
         {
-            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 08);
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 08);
         }
         
         public Manip LugaeBabilRubi()
         {
-            return new Manip(ManipController.TimeZones.CEST, 24, 04, 21, 16, 20, 17);
+            return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 17);
         }
         
         public Manip GetManipByValue(ManipNames name)
