@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="ManipController.cs">
+      <Compile Update="Manip.cs">
         <DependentUpon>MainWindow.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
