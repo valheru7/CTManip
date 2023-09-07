@@ -46,7 +46,7 @@ namespace FF3Manip
 
         private bool GameRunning()
         {
-            return Process.GetProcessesByName("FF4_Win32").Length > 0;
+            return Process.GetProcessesByName("FF4").Length > 0;
         }
 
         public void ExecuteManip(ManipList.ManipNames name)
