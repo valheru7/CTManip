@@ -9,6 +9,7 @@ namespace FF3Manip
     public class ManipController
     {
         private string savedTimeZone;
+        private string currentTimeZone;
 
         public enum DateFormats
         {
@@ -57,12 +58,17 @@ namespace FF3Manip
 
         public void SetDateTime(Manip targetManip)
         {
-            // Set time zone
-            string args = "/s \"" + targetManip.TimeZone + "\"";
-            Process p = Process.Start("tzutil.exe", args);
-            if (p != null)
+            if (currentTimeZone != targetManip.TimeZone)
             {
-                p.WaitForExit();
+                // Set time zone
+                string args = "/s \"" + targetManip.TimeZone + "\"";
+                //Process p = Process.Start("tzutil.exe", args);
+                ProcessStartInfo setTimeZone = new ProcessStartInfo("tzutil.exe", args);
+                setTimeZone.CreateNoWindow = true;
+                setTimeZone.WindowStyle = ProcessWindowStyle.Hidden;
+                Process p = Process.Start(setTimeZone);
+                p.WaitForExitAsync();
+                currentTimeZone = targetManip.TimeZone;
             }
 
             // Format strings for use in cmd
@@ -146,10 +152,10 @@ namespace FF3Manip
             timeZoneSync.CreateNoWindow = true;
             timeZoneSync.WindowStyle = ProcessWindowStyle.Hidden;
             Process tzProcess = Process.Start(timeZoneSync);
-
             tzProcess.WaitForExit();
             TimeZoneInfo.ClearCachedData();
-
+            currentTimeZone = savedTimeZone;
+            
             // Sync time
             ProcessStartInfo timeSync = new ProcessStartInfo("w32tm.exe", "/resync");
             timeSync.CreateNoWindow = true;
