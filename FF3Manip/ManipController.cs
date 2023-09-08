@@ -11,7 +11,7 @@ namespace FF3Manip
         private string savedTimeZone;
         private string currentTimeZone;
 
-        public enum DateFormats
+        private enum DateFormats
         {
             DDMMYYYY,
             MMDDYYYY,
@@ -28,14 +28,14 @@ namespace FF3Manip
             // Add more as needed - string needs to match output from tzutil.exe /l
         }
         
-        public DateFormats GetDateFormat()
+        private DateFormats GetDateFormat()
         {
             if (CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern.StartsWith("d"))
             {
                 return DateFormats.DDMMYYYY;
             }
 
-            if (CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern.StartsWith("m"))
+            if (CultureInfo.CurrentCulture.DateTimeFormat.LongDatePattern.StartsWith("M"))
             {
                 return DateFormats.MMDDYYYY;
             }
@@ -56,7 +56,7 @@ namespace FF3Manip
             SetDateTime(manipList.GetManipByValue(name));
         }
 
-        public void SetDateTime(Manip targetManip)
+        private void SetDateTime(Manip targetManip)
         {
             if (currentTimeZone != targetManip.TimeZone)
             {
@@ -142,7 +142,7 @@ namespace FF3Manip
             RevertTime();
         }
 
-        public void RevertTime()
+        private void RevertTime()
         {
             // Small buffer to allow the game to launch before reverting
             Thread.Sleep(2000);
