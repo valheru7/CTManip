@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF3Manip"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="200">
+        Title="FF4Manip" Height="250" Width="200">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel.Resources>
