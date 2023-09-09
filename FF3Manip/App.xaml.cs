@@ -27,25 +27,43 @@ namespace FF3Manip
 
         private void RevertTimeZone()
         {
-            string args = "/s \"" + savedTimeZone + "\"";
-            ProcessStartInfo timeZoneSync = new ProcessStartInfo("tzutil.exe", args);
-            timeZoneSync.CreateNoWindow = true;
-            timeZoneSync.WindowStyle = ProcessWindowStyle.Hidden;
-            Process p = Process.Start(timeZoneSync);
-
-            p.WaitForExit();
+            using(Process timeZoneRevertProcess = new Process
+                  {
+                      StartInfo = new ProcessStartInfo
+                      {
+                          FileName = "tzutil.exe",
+                          Arguments = $"/s \"{savedTimeZone}\"",
+                          CreateNoWindow = true,
+                          WindowStyle = ProcessWindowStyle.Hidden
+                      }
+                  })
+            {
+                timeZoneRevertProcess.Start();
+                timeZoneRevertProcess.WaitForExit();
+                timeZoneRevertProcess.Close();
+            }
             TimeZoneInfo.ClearCachedData();
         }
 
         private void SyncTime()
         {
-            ProcessStartInfo timeSync = new ProcessStartInfo("w32tm.exe", " /resync");
-            timeSync.CreateNoWindow = true;
-            timeSync.Verb = "runas";
-            timeSync.UseShellExecute = true;
-            timeSync.WindowStyle = ProcessWindowStyle.Hidden;
-            Process p = Process.Start(timeSync);
-            p.WaitForExit();
+            using (Process syncProcess = new Process
+                   {
+                       StartInfo = new ProcessStartInfo
+                       {
+                           FileName = "w32tm.exe",
+                           Arguments = "/resync",
+                           CreateNoWindow = true,
+                           Verb = "runas",
+                           UseShellExecute = true,
+                           WindowStyle = ProcessWindowStyle.Hidden
+                       }
+                   })
+            {
+                syncProcess.Start();
+                syncProcess.WaitForExit();
+                syncProcess.Close();
+            }
         }
     }
 }
