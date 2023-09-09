@@ -44,7 +44,7 @@ namespace FF3Manip
 
         private bool GameRunning()
         {
-            return Process.GetProcessesByName("FF4").Length > 0;
+            return Process.GetProcessesByName("FF3_Win32").Length > 0;
         }
 
         public void ExecuteManip(ManipList.ManipNames name)
@@ -133,7 +133,6 @@ namespace FF3Manip
             timeZoneSync.CreateNoWindow = true;
             timeZoneSync.WindowStyle = ProcessWindowStyle.Hidden;
             Process tzProcess = Process.Start(timeZoneSync);
-
             tzProcess.WaitForExit();
             TimeZoneInfo.ClearCachedData();
             currentTimeZone = savedTimeZone;
