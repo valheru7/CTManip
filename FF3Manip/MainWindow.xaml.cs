@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
@@ -9,11 +10,13 @@ namespace FF3Manip
     public partial class MainWindow : Window
     {
         public ManipController ManipController = new ManipController();
+        public static string systemDateFormat;
 
         public MainWindow()
         {
             InitializeComponent();
             ToggleStackVisibility(UACenabled() ? UACStack : MainStack, true);
+            systemDateFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;;
         }
 
         private void StartManip(object sender, RoutedEventArgs args)
