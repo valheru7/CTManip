@@ -44,7 +44,7 @@ namespace FF3Manip
 
         private bool GameRunning()
         {
-            return Process.GetProcessesByName("FF3_Win32").Length > 0;
+            return Process.GetProcessesByName("FF4").Length > 0;
         }
 
         public void ExecuteManip(ManipList.ManipNames name)
@@ -58,11 +58,22 @@ namespace FF3Manip
         private void SetTimeZone(string targetTimeZone)
         {
             string args = "/s \"" + targetTimeZone + "\"";
-            ProcessStartInfo setTimeZone = new ProcessStartInfo("tzutil.exe", args);
-            setTimeZone.CreateNoWindow = true;
-            setTimeZone.WindowStyle = ProcessWindowStyle.Hidden;
-            Process p = Process.Start(setTimeZone);
-            p.WaitForExitAsync();
+            using(Process setTimeZoneProcess = new Process
+                  {
+                      StartInfo = new ProcessStartInfo
+                      {
+                          FileName = "tzutil.exe",
+                          Arguments = args,
+                          CreateNoWindow = true,
+                          WindowStyle = ProcessWindowStyle.Hidden
+                      }
+                  })
+            {
+                setTimeZoneProcess.Start();
+                setTimeZoneProcess.WaitForExit();
+                setTimeZoneProcess.Close();
+            }
+            
             currentTimeZone = targetTimeZone;
         }
 
@@ -89,23 +100,43 @@ namespace FF3Manip
                     date = $"{targetManip.Year}-{targetManip.Month}-{targetManip.Day}";
                     break;
             }
-            
-            ProcessStartInfo setTime = new ProcessStartInfo("cmd.exe", "/C time " + time);
-            setTime.CreateNoWindow = true;
-            setTime.Verb = "runas";
-            setTime.UseShellExecute = true;
-            setTime.WindowStyle = ProcessWindowStyle.Hidden;
-            Process setTimeProcess = Process.Start(setTime);
-            setTimeProcess.WaitForExitAsync();
-            
-            ProcessStartInfo setDate = new ProcessStartInfo("cmd.exe", "/C date " + date);
-            setDate.CreateNoWindow = true;
-            setDate.Verb = "runas";
-            setDate.UseShellExecute = true;
-            setDate.WindowStyle = ProcessWindowStyle.Hidden;
-            Process setDateProcess = Process.Start(setDate);
-            setDateProcess.WaitForExitAsync();
-      
+
+            using (Process setTimeProcess = new Process
+                   {
+                       StartInfo = new ProcessStartInfo
+                       {
+                           FileName = "cmd.exe",
+                           Arguments = "/C time " + time,
+                           CreateNoWindow = true,
+                           Verb = "runas",
+                           UseShellExecute = true,
+                           WindowStyle = ProcessWindowStyle.Hidden
+                       }
+                   })
+            {
+                setTimeProcess.Start();
+                setTimeProcess.WaitForExit();
+                setTimeProcess.Close();
+            }
+
+            using (Process setDateProcess = new Process
+                   {
+                       StartInfo = new ProcessStartInfo
+                       {
+                           FileName = "cmd.exe",
+                           Arguments = "/C date " + date,
+                           CreateNoWindow = true,
+                           Verb = "runas",
+                           UseShellExecute = true,
+                           WindowStyle = ProcessWindowStyle.Hidden
+                       }
+                   })
+            {
+                setDateProcess.Start();
+                setDateProcess.WaitForExit();
+                setDateProcess.Close();
+            }
+
             // Set time every 0.1s
             // Fast enough to not creep into the next second, but not so fast that we melt CPUs
             Thread.Sleep(100);
@@ -128,25 +159,41 @@ namespace FF3Manip
             // Small buffer to allow the game to launch before reverting
             Thread.Sleep(2000);
             // Revert Time zone
-            string args = $"/s \"{savedTimeZone}\"";
-            ProcessStartInfo timeZoneSync = new ProcessStartInfo("tzutil.exe", args);
-            timeZoneSync.CreateNoWindow = true;
-            timeZoneSync.WindowStyle = ProcessWindowStyle.Hidden;
-            Process tzProcess = Process.Start(timeZoneSync);
-            tzProcess.WaitForExit();
+            using(Process timeZoneRevertProcess = new Process
+                  {
+                      StartInfo = new ProcessStartInfo
+                      {
+                          FileName = "tzutil.exe",
+                          Arguments = $"/s \"{savedTimeZone}\"",
+                          CreateNoWindow = true,
+                          WindowStyle = ProcessWindowStyle.Hidden
+                      }
+                  })
+            {
+                timeZoneRevertProcess.Start();
+                timeZoneRevertProcess.WaitForExit();
+                timeZoneRevertProcess.Close();
+            }
+;
             TimeZoneInfo.ClearCachedData();
             currentTimeZone = savedTimeZone;
 
-            // Sync time
-            ProcessStartInfo timeSync = new ProcessStartInfo("w32tm.exe", "/resync");
-            timeSync.CreateNoWindow = true;
-            timeSync.Verb = "runas";
-            timeSync.UseShellExecute = true;
-            timeSync.WindowStyle = ProcessWindowStyle.Hidden;
-            Process syncProcess = Process.Start(timeSync);
-            if (syncProcess != null)
+            using (Process syncProcess = new Process
+                   {
+                       StartInfo = new ProcessStartInfo
+                       {
+                           FileName = "w32tm.exe",
+                           Arguments = "/resync",
+                           CreateNoWindow = true,
+                           Verb = "runas",
+                           UseShellExecute = true,
+                           WindowStyle = ProcessWindowStyle.Hidden
+                       }
+                   })
             {
+                syncProcess.Start();
                 syncProcess.WaitForExit();
+                syncProcess.Close();
             }
         }
     }
