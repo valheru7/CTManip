@@ -16,8 +16,8 @@ Download the latest release from the [Releases page](https://github.com/Ricky-Ja
 
 **Troubleshooting:**
 * Loss of internet access:
- Open CMD and run "w32tm /resync"
+ Open CMD as administrator and run "w32tm /resync"
 * If time is not being resynced automatically, try registering w32tm:\
- Open CMD and run "w32tm /register"
+ Open CMD as administrator and run "w32tm /register"
 * Wrong timezone after closing the program:
  Right-click system time -> Adjust Date & Time -> Change Time zone
