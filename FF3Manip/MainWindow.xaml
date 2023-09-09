@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF3Manip"
         mc:Ignorable="d"
-        Title="FF3 Manip" Height="450" Width="200" Background="#92dda1">
+        Title="FF3 Manip" Height="450" Width="250" Background="#92dda1">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel x:Name="UACStack" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
+            <Label MaxWidth="250" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Red">
+                User Account Control (UAC) Detected.</Label>
+            <Label MaxWidth="250" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Red">
+                Disable UAC and reboot to continue.</Label>
+            <Button Width="175" Height="90" Foreground="Red" Click="UACOverride">Override Warning (Advanced)</Button>
+        </StackPanel>
+        <StackPanel x:Name="MainStack" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="0,5,0,0"/>
