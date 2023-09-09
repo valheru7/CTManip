@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using Microsoft.Win32;
 
 namespace FF3Manip
 {
@@ -15,7 +14,6 @@ namespace FF3Manip
         public MainWindow()
         {
             InitializeComponent();
-            ToggleStackVisibility(UACenabled() ? UACStack : MainStack, true);
             systemDateFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;;
         }
 
@@ -49,27 +47,8 @@ namespace FF3Manip
                 throw new NotSupportedException(sender + " not a recognised or implemented manip");
             }
         }
-
-        private static bool UACenabled()
-        {
-
-            const string uacRegistryPath = 
-                @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System";
-            int uacValue = (int)Registry.GetValue(uacRegistryPath, "EnableLUA", -1);
-            
-            return uacValue == 1;
-        }
-
-        private void ToggleStackVisibility(StackPanel parent, bool visible)
-        {
-            parent.Visibility = visible ? Visibility.Visible : Visibility.Hidden;
-        }
-        
-        private void UACOverride(object sender, RoutedEventArgs args)
-        {
-            ToggleStackVisibility(MainStack, true);
-            ToggleStackVisibility(UACStack, false);
-        }
     }
+
+
 }
 
