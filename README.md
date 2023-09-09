@@ -14,6 +14,13 @@ If you run into issues, you will lose internet access - see Troubleshooting belo
 Download the latest release from the [Releases page](https://github.com/Ricky-James/FF34Manip/releases)\
 .NET 7 or higher required. You should be prompted to download it automatically if you don't already have it.
 
+1. Have FF3/4 Launcher open.
+2. Click the manip you want to use.
+3. Press Play on launcher.
+
+System time and date should be set when clicking the button.\
+System time and date should automatically revert when the game is launched.
+
 **Troubleshooting:**
 * Loss of internet access:
  Open CMD as administrator and run "w32tm /resync"
