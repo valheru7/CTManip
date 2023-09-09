@@ -28,7 +28,7 @@
             </StackPanel.Resources>
             
             <Button Width="150" Click="StartManip">Altar Cave</Button>
-            <Button Width="150" Padding="0" Click="StartManip">Land Turtle (Back up)</Button>
+            <Button Width="150" Click="StartManip">Land Turtle (Back up)</Button>
             <Button Width="150" Click="StartManip">Sealed Cave</Button>
             <Button Width="150" Click="StartManip">Dragon's Peak</Button>
             <Button Width="150" Click="StartManip">Tower of Owen</Button>

@@ -36,7 +36,6 @@ namespace FF3Manip
                 { "Amur Sewers", ManipList.ManipNames.Sewers},
                 { "Amur", ManipList.ManipNames.Amur},
                 
-                
             };
             
             string? buttonText = (args.Source as Button).Content.ToString(); // Text on the button
