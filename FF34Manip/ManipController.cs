@@ -167,21 +167,24 @@ namespace FF34Manip
                 SetTimeProcess.Close();
             }
             
+            // Continuously set time until either game is launched or the app is closed
             try
             {
-                
                 if (!GameRunning() && Application.Current.MainWindow.IsActive)
                 {
                     Thread.Sleep(100);
                     SetTime(targetManip);
                 }
+                else
+                {
+                    RevertTime();
+                }
             }
             catch
             {
+                // Fix  time on crash, particularly common when a manip is active
                 RevertTime();
-                return;
             }
-            RevertTime();
         }
 
         private void SetDateTime(Manip targetManip)
@@ -215,7 +218,7 @@ namespace FF34Manip
                 timeZoneRevertProcess.WaitForExit();
                 timeZoneRevertProcess.Close();
             }
-;
+
             TimeZoneInfo.ClearCachedData();
             currentTimeZone = savedTimeZone;
             timeAdjustedForOffset = false;
