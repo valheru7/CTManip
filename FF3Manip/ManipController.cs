@@ -9,6 +9,8 @@ namespace FF3Manip
     {
         private string savedTimeZone;
         private string currentTimeZone;
+        private string currentDate;
+        private bool timeAdjustedForOffset;
 
         private enum DateFormats
         {
@@ -52,6 +54,8 @@ namespace FF3Manip
             savedTimeZone = TimeZoneInfo.Local.StandardName;
 
             ManipList manipList = new ManipList();
+            timeAdjustedForOffset = false;
+            currentDate = "";
             SetDateTime(manipList.GetManipByValue(name));
         }
 
@@ -59,16 +63,14 @@ namespace FF3Manip
         {
             string args = "/s \"" + targetTimeZone + "\"";
             using(Process setTimeZoneProcess = new Process
-                  {
-                      StartInfo = new ProcessStartInfo
-                      {
-                          FileName = "tzutil.exe",
-                          Arguments = args,
-                          CreateNoWindow = true,
-                          WindowStyle = ProcessWindowStyle.Hidden
-                      }
-                  })
             {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "tzutil.exe",
+                    Arguments = args,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }}) {
                 setTimeZoneProcess.Start();
                 setTimeZoneProcess.WaitForExit();
                 setTimeZoneProcess.Close();
@@ -77,15 +79,8 @@ namespace FF3Manip
             currentTimeZone = targetTimeZone;
         }
 
-        private void SetDateTime(Manip targetManip)
+        private void SetDate(Manip targetManip)
         {
-            if (currentTimeZone != targetManip.TimeZone)
-            {
-                SetTimeZone(targetManip.TimeZone);
-            }
-
-            // Format strings for use in cmd
-            string time = targetManip.Hour + ":" + targetManip.Minute + ":" + targetManip.Second + ".00";
             string date = string.Empty;
 
             switch (GetDateFormat())
@@ -100,58 +95,104 @@ namespace FF3Manip
                     date = $"{targetManip.Year}-{targetManip.Month}-{targetManip.Day}";
                     break;
             }
+            
+            if (date != currentDate)
+            {
+                using (Process setDateProcess = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = "/C date " + date,
+                        CreateNoWindow = true,
+                        Verb = "runas",
+                        UseShellExecute = true,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    }}) {
+                    setDateProcess.Start();
+                    setDateProcess.WaitForExit();
+                    setDateProcess.Close();
+                    currentDate = date;
+                }
+            }
+        }
 
-            using (Process setTimeProcess = new Process
+        private string ParseTime(ref Manip targetManip)
+        {
+            // TODO: Adjust for minutes that over/underflow into hour
+            // I've left this for now as it's an extremely unlikely scenario (essentially requires exactly x:00:00)
+            string time = targetManip.Hour + ":" + targetManip.Minute + ":" + targetManip.Second + ".00";
+            if (timeAdjustedForOffset)
+                return time;
+            
+            targetManip.Second += MainWindow.timeOffset;
+            if (targetManip.Second < 0)
+            {
+                int gap = 0 - targetManip.Second;
+                targetManip.Minute--;
+                targetManip.Second = (short)(60 - gap);
+            }
+
+            if (targetManip.Second >= 60)
+            {
+                int gap = targetManip.Second - 60;
+                targetManip.Minute++;
+                targetManip.Second = (short)gap;
+            }
+
+            timeAdjustedForOffset = true;
+            return time;
+        }
+
+        private void SetTime(Manip targetManip)
+        {
+            using (Process SetTimeProcess = new Process
                    {
                        StartInfo = new ProcessStartInfo
                        {
                            FileName = "cmd.exe",
-                           Arguments = "/C time " + time,
+                           Arguments = $"/C time {ParseTime(ref targetManip)}",
                            CreateNoWindow = true,
                            Verb = "runas",
                            UseShellExecute = true,
                            WindowStyle = ProcessWindowStyle.Hidden
                        }
+
                    })
             {
-                setTimeProcess.Start();
-                setTimeProcess.WaitForExit();
-                setTimeProcess.Close();
+                timeAdjustedForOffset = true;
+                SetTimeProcess.Start();
+                SetTimeProcess.WaitForExit();
+                SetTimeProcess.Close();
             }
 
-            using (Process setDateProcess = new Process
-                   {
-                       StartInfo = new ProcessStartInfo
-                       {
-                           FileName = "cmd.exe",
-                           Arguments = "/C date " + date,
-                           CreateNoWindow = true,
-                           Verb = "runas",
-                           UseShellExecute = true,
-                           WindowStyle = ProcessWindowStyle.Hidden
-                       }
-                   })
-            {
-                setDateProcess.Start();
-                setDateProcess.WaitForExit();
-                setDateProcess.Close();
-            }
-
-            // Set time every 0.1s
-            // Fast enough to not creep into the next second, but not so fast that we melt CPUs
-            Thread.Sleep(100);
             try
             {
                 if (!GameRunning() && Application.Current.MainWindow.IsActive)
                 {
-                    SetDateTime(targetManip);
+                    Thread.Sleep(100);
+                    SetTime(targetManip);
                 }
             }
             catch
             {
-                // Program closed while a manip is active, or otherwise crashes
                 RevertTime();
             }
+            finally
+            {
+                timeAdjustedForOffset = false;
+            }
+        }
+
+        private void SetDateTime(Manip targetManip)
+        {
+            if (currentTimeZone != targetManip.TimeZone)
+            {
+                SetTimeZone(targetManip.TimeZone);
+            }
+            
+            SetDate(targetManip);
+            SetTime(targetManip);
         }
 
         private void RevertTime()

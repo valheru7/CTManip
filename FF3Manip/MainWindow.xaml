@@ -14,6 +14,16 @@
                 </Style>
             </StackPanel.Resources>
             
+            <DockPanel HorizontalAlignment="Left">
+                <Label Content="Offset (seconds):"/>
+                <TextBox x:Name="integerTextBox" Width="25" Margin="10 0 0 0"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         PreviewTextInput="Offset_PreviewTextInput"
+                         PreviewKeyDown="Offset_PreviewKeyDown" 
+                         Text=""/>
+            </DockPanel>
+            
             <Button Width="150" Click="StartManip">New Game</Button>
             <Button Width="150" Click="StartManip">Rainbow Pudding</Button>
             <Button Width="150" Click="StartManip">Octomammoth</Button>
