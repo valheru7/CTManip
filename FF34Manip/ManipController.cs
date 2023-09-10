@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 
-namespace FF3Manip
+namespace FF34Manip
 {
     public class ManipController
     {
@@ -166,9 +166,10 @@ namespace FF3Manip
                 SetTimeProcess.WaitForExit();
                 SetTimeProcess.Close();
             }
-
+            
             try
             {
+                
                 if (!GameRunning() && Application.Current.MainWindow.IsActive)
                 {
                     Thread.Sleep(100);
@@ -178,7 +179,9 @@ namespace FF3Manip
             catch
             {
                 RevertTime();
+                return;
             }
+            RevertTime();
         }
 
         private void SetDateTime(Manip targetManip)

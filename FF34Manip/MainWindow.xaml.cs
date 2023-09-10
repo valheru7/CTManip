@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace FF3Manip
+namespace FF34Manip
 {
     public partial class MainWindow : Window
     {

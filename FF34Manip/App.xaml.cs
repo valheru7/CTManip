@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 
-namespace FF3Manip
+namespace FF34Manip
 {
     /// <summary>
     /// Interaction logic for App.xaml

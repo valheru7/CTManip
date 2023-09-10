@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FF3Manip
+namespace FF34Manip
 {
     public class ManipList
     {
@@ -94,7 +94,6 @@ namespace FF3Manip
         private Manip PinkTail() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 27); }
         private Manip MysidiaOrdealsZot() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 08); }
         private Manip LugaeBabilRubi() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 17); }
-        
         
     }
 }
