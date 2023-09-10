@@ -1,15 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <TargetFramework>net7.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <LangVersion>10</LangVersion>
+        <AssemblyName>FF4Manip</AssemblyName>
+        <RootNamespace>FF4Manip</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <Compile Update="Manip.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Manip.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="ManipList.cs">
         <DependentUpon>MainWindow.xaml</DependentUpon>
       </Compile>
     </ItemGroup>

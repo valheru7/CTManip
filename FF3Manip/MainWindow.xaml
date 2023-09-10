@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF3Manip"
         mc:Ignorable="d"
-        Title="FF3 Manip" Height="450" Width="200" Background="#92dda1">
+        Title="FF34Manip" Height="400" Width="200">
+    
+
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="0,5,0,0"/>
@@ -19,20 +21,48 @@
                 </Style>
                 
             </StackPanel.Resources>
-            
-            <Button Width="150" Click="StartManip">Altar Cave</Button>
-            <Button Width="150" Click="StartManip">Land Turtle (Back up)</Button>
-            <Button Width="150" Click="StartManip">Sealed Cave</Button>
-            <Button Width="150" Click="StartManip">Dragon's Peak</Button>
-            <Button Width="150" Click="StartManip">Tower of Owen</Button>
-            <Button Width="150" Click="StartManip">Tower of Owen 2</Button>
-            <Button Width="150" Click="StartManip">Subterranean Lake</Button>
-            <Button Width="150" Click="StartManip">Molten Cave</Button>
-            <Button Width="150" Click="StartManip">Hein's Castle</Button>
-            <Button Width="150" Click="StartManip">Cave of Tides</Button>
-            <Button Width="150" Click="StartManip">Amur Sewers</Button>
-            <Button Width="150" Click="StartManip">Amur</Button>
-            
+
+            <!-- Dock panel for Offset settings -->
+            <DockPanel HorizontalAlignment="Left">
+                <Label Content="Offset (seconds):"/>
+                <TextBox x:Name="integerTextBox" Width="25" Margin="10 0 0 0"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         PreviewTextInput="Offset_PreviewTextInput"
+                         PreviewKeyDown="Offset_PreviewKeyDown" 
+                         Text=""/>
+            </DockPanel>
+        
+            <TabControl TabStripPlacement="Top" HorizontalContentAlignment="Stretch" >
+                <TabItem Header="FF3" Width="50">
+                    <StackPanel>
+                        <Button Width="150" Click="StartManip">Altar Cave</Button>
+                        <Button Width="150" Click="StartManip">Land Turtle (Back up)</Button>
+                        <Button Width="150" Click="StartManip">Sealed Cave</Button>
+                        <Button Width="150" Click="StartManip">Dragon's Peak</Button>
+                        <Button Width="150" Click="StartManip">Tower of Owen</Button>
+                        <Button Width="150" Click="StartManip">Tower of Owen 2</Button>
+                        <Button Width="150" Click="StartManip">Subterranean Lake</Button>
+                        <Button Width="150" Click="StartManip">Molten Cave</Button>
+                        <Button Width="150" Click="StartManip">Hein's Castle</Button>
+                        <Button Width="150" Click="StartManip">Cave of Tides</Button>
+                        <Button Width="150" Click="StartManip">Amur Sewers</Button>
+                        <Button Width="150" Click="StartManip">Amur</Button>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="FF4" Width="50">
+                    <StackPanel>
+                        <Button Width="150" Click="StartManip">New Game</Button>
+                        <Button Width="150" Click="StartManip">Rainbow Pudding</Button>
+                        <Button Width="150" Click="StartManip">Octomammoth</Button>
+                        <Button Width="150" Click="StartManip">Safe Travel</Button>
+                        <Button Width="150" Click="StartManip">Pink Tail</Button>
+                        <Button Width="150" Click="StartManip">Mysidia/Ordeals/Zot</Button>
+                        <Button Width="150" Click="StartManip">Lugae/Babil/Rubi</Button>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
         </StackPanel>
     </Grid>
 </Window>
