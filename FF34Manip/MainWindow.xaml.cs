@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace FF34Manip
 {
     public partial class MainWindow : Window
     {
+        public static string AppVersion => $"Version 1.0 ({System.DateTime.Today.ToShortDateString()})";
         public ManipController ManipController = new ManipController();
         public static string systemDateFormat;
         public static short timeOffset = 0;

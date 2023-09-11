@@ -5,21 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF34Manip"
         mc:Ignorable="d"
-        Title="FF34Manip" Height="400" Width="200">
+        Title="FF34Manip" Height="500" Width="200">
     
-
+    <!--Tab background colour styling-->
+    <Window.Resources>
+        <Style x:Key="TabControlStyle" TargetType="TabControl">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tabControl, Path=SelectedIndex}" Value="0">
+                    <Setter Property="Background" Value="#cdfada" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=tabControl, Path=SelectedIndex}" Value="1">
+                    <Setter Property="Background" Value="#cdcefa" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="0,5,0,0"/>
+                    <!-- TODO: update with some click style to indicate active manip-
                     <Style.Triggers>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Foreground" Value="Green"/>
                         </Trigger>
                     </Style.Triggers>
+                    -->
                 </Style>
-                
             </StackPanel.Resources>
 
             <!-- Dock panel for Offset settings -->
@@ -33,7 +47,7 @@
                          Text=""/>
             </DockPanel>
         
-            <TabControl TabStripPlacement="Top" HorizontalContentAlignment="Stretch" >
+            <TabControl x:Name="tabControl" TabStripPlacement="Top" HorizontalContentAlignment="Stretch" Style="{StaticResource TabControlStyle}">
                 <TabItem Header="FF3" Width="50">
                     <StackPanel>
                         <Button Width="150" Click="StartManip">Altar Cave</Button>
@@ -64,5 +78,6 @@
                 </TabItem>
             </TabControl>
         </StackPanel>
+        <Label Content="{Binding AppVersion, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Label>
     </Grid>
 </Window>
