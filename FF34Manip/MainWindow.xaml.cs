@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace FF34Manip
 {
@@ -19,6 +19,29 @@ namespace FF34Manip
         {
             InitializeComponent();
             systemDateFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+            InitializeTimeService();
+        }
+
+        // Verify time service is active to enable /resync
+        public void InitializeTimeService()
+        {
+            string args = "start w32time";
+            using (Process startTimeService = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "net.exe",
+                    Arguments = args,
+                    CreateNoWindow = true,
+                    UseShellExecute = true,
+                    Verb = "runas",
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            })
+            {
+                startTimeService.Start();
+                startTimeService.WaitForExit();
+            }
         }
 
         private void StartManip(object sender, RoutedEventArgs args)
