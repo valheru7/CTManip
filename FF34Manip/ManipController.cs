@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices.JavaScript;
 using System.Threading;
 using System.Windows;
 
@@ -161,6 +162,7 @@ namespace FF34Manip
 
                    })
             {
+                //Console.WriteLine(System.DateTime.Now.Millisecond);
                 timeAdjustedForOffset = true;
                 SetTimeProcess.Start();
                 SetTimeProcess.WaitForExit();
@@ -172,7 +174,7 @@ namespace FF34Manip
             {
                 if (!GameRunning() && Application.Current.MainWindow.IsActive)
                 {
-                    Thread.Sleep(100);
+                    Thread.Sleep(40);
                     SetTime(targetManip);
                 }
                 else

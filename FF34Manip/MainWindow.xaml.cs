@@ -30,14 +30,16 @@ namespace FF34Manip
                 { "Land Turtle (Back up)", ManipList.ManipNames.LandTurtle },
                 { "Sealed Cave", ManipList.ManipNames.SealedCave},
                 { "Dragon's Peak", ManipList.ManipNames.DragonsPeak},
+                { "Tozus Tunnel", ManipList.ManipNames.TozusTunnel},
                 { "Tower of Owen", ManipList.ManipNames.TowerOfOwen},
-                { "Tower of Owen 2", ManipList.ManipNames.TowenOfOwen2},
+                { "Tower of Owen Inside", ManipList.ManipNames.TowenOfOwen2},
+                { "Medusa", ManipList.ManipNames.Medusa},
                 { "Subterranean Lake", ManipList.ManipNames.SubterraneanLake},
                 { "Molten Cave", ManipList.ManipNames.MoltenCave},
                 { "Hein's Castle", ManipList.ManipNames.HeinCastle},
                 { "Cave of Tides", ManipList.ManipNames.CaveOfTides},
                 { "Amur Sewers", ManipList.ManipNames.Sewers},
-                { "Amur", ManipList.ManipNames.Amur},
+                { "Amur Chocobo", ManipList.ManipNames.Amur},
                 
                 // FF4
                 { "New Game", ManipList.ManipNames.NewGame },

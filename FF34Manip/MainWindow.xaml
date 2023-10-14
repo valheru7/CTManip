@@ -54,14 +54,16 @@
                         <Button Width="150" Click="StartManip">Land Turtle (Back up)</Button>
                         <Button Width="150" Click="StartManip">Sealed Cave</Button>
                         <Button Width="150" Click="StartManip">Dragon's Peak</Button>
+                        <Button Width="150" Click="StartManip">Tozus Tunnel</Button>
                         <Button Width="150" Click="StartManip">Tower of Owen</Button>
-                        <Button Width="150" Click="StartManip">Tower of Owen 2</Button>
+                        <Button Width="150" Click="StartManip">Tower of Owen Inside</Button>
+                        <Button Width="150" Click="StartManip">Medusa</Button>
                         <Button Width="150" Click="StartManip">Subterranean Lake</Button>
                         <Button Width="150" Click="StartManip">Molten Cave</Button>
                         <Button Width="150" Click="StartManip">Hein's Castle</Button>
                         <Button Width="150" Click="StartManip">Cave of Tides</Button>
                         <Button Width="150" Click="StartManip">Amur Sewers</Button>
-                        <Button Width="150" Click="StartManip">Amur</Button>
+                        <Button Width="150" Click="StartManip">Amur Chocobo</Button>
                     </StackPanel>
                 </TabItem>
 
