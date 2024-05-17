@@ -10,7 +10,7 @@ namespace FF34Manip
 {
     public partial class MainWindow : Window
     {
-        public static string AppVersion => $"Version 1.0 ({System.DateTime.Today.ToShortDateString()})";
+        public static string AppVersion => $"Version 1.1 - 2024-05-16";
         public ManipController ManipController = new ManipController();
         public static string systemDateFormat;
         public static short timeOffset = 0;
@@ -50,19 +50,28 @@ namespace FF34Manip
             {
                 // FF3
                 { "Altar Cave", ManipList.ManipNames.AltarCave },
-                { "Land Turtle (Back up)", ManipList.ManipNames.LandTurtle },
                 { "Sealed Cave", ManipList.ManipNames.SealedCave},
                 { "Dragon's Peak", ManipList.ManipNames.DragonsPeak},
                 { "Tozus Tunnel", ManipList.ManipNames.TozusTunnel},
-                { "Tower of Owen", ManipList.ManipNames.TowerOfOwen},
-                { "Tower of Owen Inside", ManipList.ManipNames.TowenOfOwen2},
-                { "Medusa", ManipList.ManipNames.Medusa},
+                { "To Tower of Owen", ManipList.ManipNames.ToTowerOfOwen},
+                { "Tower of Owen", ManipList.ManipNames.TowenOfOwen},
                 { "Subterranean Lake", ManipList.ManipNames.SubterraneanLake},
                 { "Molten Cave", ManipList.ManipNames.MoltenCave},
                 { "Hein's Castle", ManipList.ManipNames.HeinCastle},
                 { "Cave of Tides", ManipList.ManipNames.CaveOfTides},
                 { "Amur Sewers", ManipList.ManipNames.Sewers},
-                { "Amur Chocobo", ManipList.ManipNames.Amur},
+                { "Chocobo's Wrath", ManipList.ManipNames.ChocoboWrath },
+                { "Goldor Manor", ManipList.ManipNames.GoldorManor },
+                { "Garuda", ManipList.ManipNames.Garuda },
+                { "Cave of the Circle", ManipList.ManipNames.CaveOfTheCircle },
+                { "Saronia Catacombs", ManipList.ManipNames.SaroniaCatacombs },
+                { "Ancients' Maze", ManipList.ManipNames.AncientsMaze },
+                { "Cave of Shadows", ManipList.ManipNames.CaveOfShadows },
+                { "Shining Curtain", ManipList.ManipNames.ShiningCurtain },
+                { "Doga's Grotto", ManipList.ManipNames.DogasGrotto },
+                { "To Xande", ManipList.ManipNames.ToXande },
+                { "World of Darkness", ManipList.ManipNames.WorldOfDarkness },
+                { "Cloud of Darkness", ManipList.ManipNames.CloudOfDarkness },
                 
                 // FF4
                 { "New Game", ManipList.ManipNames.NewGame },

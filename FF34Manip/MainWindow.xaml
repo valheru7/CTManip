@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FF34Manip"
         mc:Ignorable="d"
-        Title="FF34Manip" Height="500" Width="200">
+        Title="FF34Manip" Height="700" Width="200">
     
     <!--Tab background colour styling-->
     <Window.Resources>
@@ -51,19 +51,29 @@
                 <TabItem Header="FF3" Width="50">
                     <StackPanel>
                         <Button Width="150" Click="StartManip">Altar Cave</Button>
-                        <Button Width="150" Click="StartManip">Land Turtle (Back up)</Button>
                         <Button Width="150" Click="StartManip">Sealed Cave</Button>
                         <Button Width="150" Click="StartManip">Dragon's Peak</Button>
                         <Button Width="150" Click="StartManip">Tozus Tunnel</Button>
+                        <Button Width="150" Click="StartManip">To Tower of Owen</Button>
                         <Button Width="150" Click="StartManip">Tower of Owen</Button>
-                        <Button Width="150" Click="StartManip">Tower of Owen Inside</Button>
-                        <Button Width="150" Click="StartManip">Medusa</Button>
                         <Button Width="150" Click="StartManip">Subterranean Lake</Button>
                         <Button Width="150" Click="StartManip">Molten Cave</Button>
                         <Button Width="150" Click="StartManip">Hein's Castle</Button>
                         <Button Width="150" Click="StartManip">Cave of Tides</Button>
                         <Button Width="150" Click="StartManip">Amur Sewers</Button>
-                        <Button Width="150" Click="StartManip">Amur Chocobo</Button>
+                        <Button Width="150" Click="StartManip">Chocobo's Wrath</Button>
+                        <Button Width="150" Click="StartManip">Goldor Manor</Button>
+                        <Button Width="150" Click="StartManip">Garuda</Button>
+                        <Button Width="150" Click="StartManip">Cave of the Circle</Button>
+                        <Button Width="150" Click="StartManip">Saronia Catacombs</Button>
+                        <Button Width="150" Click="StartManip">Ancients' Maze</Button>
+                        <Button Width="150" Click="StartManip">Cave of Shadows</Button>
+                        <Button Width="150" Click="StartManip">Shining Curtain</Button>
+                        <Button Width="150" Click="StartManip">Doga's Grotto</Button>
+                        <Button Width="150" Click="StartManip">To Xande</Button>
+                        <Button Width="150" Click="StartManip">World of Darkness</Button>
+                        <Button Width="150" Click="StartManip">Cloud of Darkness</Button>
+
                     </StackPanel>
                 </TabItem>
 
