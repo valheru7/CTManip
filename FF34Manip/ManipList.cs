@@ -53,7 +53,8 @@ namespace FF34Manip
                 {ManipNames.SafeTravel, SafeTravel},
                 {ManipNames.PinkTail, PinkTail},
                 {ManipNames.MysidiaOrdealsZot, MysidiaOrdealsZot},
-                {ManipNames.LugaeBabilRubi, LugaeBabilRubi}
+                {ManipNames.Lugae, Lugae },
+                {ManipNames.BabilRubi, BabilRubi}
                 
             };
         }
@@ -92,7 +93,8 @@ namespace FF34Manip
             SafeTravel,
             PinkTail,
             MysidiaOrdealsZot,
-            LugaeBabilRubi
+            Lugae,
+            BabilRubi
         }
         
         // FF3
@@ -127,7 +129,8 @@ namespace FF34Manip
         private Manip SafeTravel() { return new Manip(ManipController.TimeZones.CEST, 11, 05, 2021, 16, 45, 00); }
         private Manip PinkTail() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 27); }
         private Manip MysidiaOrdealsZot() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 08); }
-        private Manip LugaeBabilRubi() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 17); }
+        private Manip Lugae() { return new Manip(ManipController.TimeZones.CEST, 01, 03, 25, 11, 31, 31); }
+        private Manip BabilRubi() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 17); }
         
     }
 }

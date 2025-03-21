@@ -85,7 +85,8 @@
                         <Button Width="150" Click="StartManip">Safe Travel</Button>
                         <Button Width="150" Click="StartManip">Pink Tail</Button>
                         <Button Width="150" Click="StartManip">Mysidia/Ordeals/Zot</Button>
-                        <Button Width="150" Click="StartManip">Lugae/Babil/Rubi</Button>
+                        <Button Width="150" Click="StartManip">Lugae</Button>
+                        <Button Width="150" Click="StartManip">Babil/Rubi</Button>
                     </StackPanel>
                 </TabItem>
             </TabControl>

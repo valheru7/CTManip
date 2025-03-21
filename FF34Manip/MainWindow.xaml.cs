@@ -10,7 +10,7 @@ namespace FF34Manip
 {
     public partial class MainWindow : Window
     {
-        public static string AppVersion => $"Version 1.1 - 2024-05-16";
+        public static string AppVersion => $"Version 1.2 - 2025-03-21";
         public ManipController ManipController = new ManipController();
         public static string systemDateFormat;
         public static short timeOffset = 0;
@@ -80,7 +80,8 @@ namespace FF34Manip
                 { "Safe Travel", ManipList.ManipNames.SafeTravel },
                 { "Pink Tail", ManipList.ManipNames.PinkTail },
                 { "Mysidia/Ordeals/Zot", ManipList.ManipNames.MysidiaOrdealsZot },
-                { "Lugae/Babil/Rubi", ManipList.ManipNames.LugaeBabilRubi }
+                { "Lugae", ManipList.ManipNames.Lugae },
+                { "Babil/Rubi", ManipList.ManipNames.BabilRubi }
 
             };
             
