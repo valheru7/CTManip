@@ -1,5 +1,5 @@
 # FF3/4 Manip Tool
-This tool assists with system time configuration for FF3 and FF4 PC (3D) (FF3 Coming soon).\
+This tool assists with system time configuration for FF3 and FF4 PC (3D).\
 **Windows only** - Windows versions older than Windows 10 are untested and unsupported.
 
 ### Warning: Altering system time may cause severe issues, including data loss, software malfunction, network problems, and instability.
