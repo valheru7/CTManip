@@ -10,7 +10,7 @@ namespace FF34Manip
 {
     public partial class MainWindow : Window
     {
-        public static string AppVersion => $"Version 1.2 - 2025-03-21";
+        public static string AppVersion => $"Version 1.3 - 2025-05-06";
         public ManipController ManipController = new ManipController();
         public static string systemDateFormat;
         public static short timeOffset = 0;
