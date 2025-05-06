@@ -124,7 +124,7 @@ namespace FF34Manip
 
         // FF4
         private Manip NewGame() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
-        private Manip RainbowPudding() { return new Manip(ManipController.TimeZones.CEST, 03, 29, 25, 12, 16, 31); }
+        private Manip RainbowPudding() { return new Manip(ManipController.TimeZones.CEST, 29, 03, 25, 12, 16, 31); }
         private Manip Octomammoth() { return new Manip(ManipController.TimeZones.CEST, 15, 03, 25, 14, 09, 00); }
         private Manip SafeTravel() { return new Manip(ManipController.TimeZones.CEST, 11, 05, 2021, 16, 45, 00); }
         private Manip PinkTail() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 27); }
