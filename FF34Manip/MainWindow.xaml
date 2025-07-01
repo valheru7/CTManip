@@ -86,7 +86,7 @@
                         <Button Width="150" Click="StartManip">Underworld</Button>
                         <Button Width="150" Click="StartManip">Lugae</Button>
                         <Button Width="150" Click="StartManip">Babil/Rubi</Button>
-                        <Button Width="150" Click="StartManip">Sealed Cave</Button>
+                        <Button Width="150" Click="StartManip">Sealed Cave FF4</Button>
                         <Button Width="150" Click="StartManip">Safe Travel</Button>
                         <Button Width="150" Click="StartManip">Dragon One Cycle</Button>
                         <Button Width="150" Click="StartManip">Pink Tail</Button>

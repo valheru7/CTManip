@@ -81,7 +81,7 @@ namespace FF34Manip
                 { "Underworld", ManipList.ManipNames.Underworld },
                 { "Lugae", ManipList.ManipNames.Lugae },
                 { "Babil/Rubi", ManipList.ManipNames.BabilRubi },
-                { "Sealed Cave", ManipList.ManipNames.SealedCaveFF4 },
+                { "Sealed Cave FF4", ManipList.ManipNames.SealedCaveFF4 },
                 { "Safe Travel", ManipList.ManipNames.SafeTravel },
                 { "Dragon One Cycle", ManipList.ManipNames.DragonOneCycle },
                 { "Pink Tail", ManipList.ManipNames.PinkTail },
