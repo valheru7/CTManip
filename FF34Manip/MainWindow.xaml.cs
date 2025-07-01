@@ -10,7 +10,7 @@ namespace FF34Manip
 {
     public partial class MainWindow : Window
     {
-        public static string AppVersion => $"Version 1.4 - 2025-05-06";
+        public static string AppVersion => $"Version 1.5 - 2025-07-01";
         public ManipController ManipController = new ManipController();
         public static string systemDateFormat;
         public static short timeOffset = 0;
@@ -75,13 +75,19 @@ namespace FF34Manip
                 
                 // FF4
                 { "New Game", ManipList.ManipNames.NewGame },
-                { "Rainbow Pudding", ManipList.ManipNames.RainbowPudding },
                 { "Octomammoth", ManipList.ManipNames.Octomammoth },
-                { "Safe Travel", ManipList.ManipNames.SafeTravel },
-                { "Pink Tail", ManipList.ManipNames.PinkTail },
-                { "Mysidia/Ordeals/Zot", ManipList.ManipNames.MysidiaOrdealsZot },
+                { "Mysidia/Ordeals", ManipList.ManipNames.MysidiaOrdeals },
+                { "Rainbow Pudding", ManipList.ManipNames.RainbowPudding },
+                { "Underworld", ManipList.ManipNames.Underworld },
                 { "Lugae", ManipList.ManipNames.Lugae },
-                { "Babil/Rubi", ManipList.ManipNames.BabilRubi }
+                { "Babil/Rubi", ManipList.ManipNames.BabilRubi },
+                { "Sealed Cave", ManipList.ManipNames.SealedCaveFF4 },
+                { "Safe Travel", ManipList.ManipNames.SafeTravel },
+                { "Dragon One Cycle", ManipList.ManipNames.DragonOneCycle },
+                { "Pink Tail", ManipList.ManipNames.PinkTail },
+                
+                
+                
 
             };
             

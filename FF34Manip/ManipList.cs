@@ -48,13 +48,18 @@ namespace FF34Manip
                 
                 // FF4
                 {ManipNames.NewGame, NewGame},
-                {ManipNames.RainbowPudding, RainbowPudding},
                 {ManipNames.Octomammoth, Octomammoth},
-                {ManipNames.SafeTravel, SafeTravel},
-                {ManipNames.PinkTail, PinkTail},
-                {ManipNames.MysidiaOrdealsZot, MysidiaOrdealsZot},
+                {ManipNames.MysidiaOrdeals, MysidiaOrdeals},
+                {ManipNames.RainbowPudding, RainbowPudding},
+                {ManipNames.Underworld, Underworld },
                 {ManipNames.Lugae, Lugae },
-                {ManipNames.BabilRubi, BabilRubi}
+                {ManipNames.BabilRubi, BabilRubi },
+                {ManipNames.SealedCaveFF4, SealedCaveFF4 }, 
+                {ManipNames.SafeTravel, SafeTravel},
+                {ManipNames.DragonOneCycle, DragonOneCycle },
+                {ManipNames.PinkTail, PinkTail},
+                
+                
                 
             };
         }
@@ -88,13 +93,17 @@ namespace FF34Manip
             
             // FF4
             NewGame,
-            RainbowPudding,
             Octomammoth,
-            SafeTravel,
-            PinkTail,
-            MysidiaOrdealsZot,
+            MysidiaOrdeals,
+            RainbowPudding,
+            Underworld,
             Lugae,
-            BabilRubi
+            BabilRubi,
+            SealedCaveFF4,
+            SafeTravel,
+            DragonOneCycle,
+            PinkTail,
+
         }
         
         // FF3
@@ -124,13 +133,15 @@ namespace FF34Manip
 
         // FF4
         private Manip NewGame() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
-        private Manip RainbowPudding() { return new Manip(ManipController.TimeZones.CEST, 29, 03, 25, 12, 16, 31); }
         private Manip Octomammoth() { return new Manip(ManipController.TimeZones.CEST, 15, 03, 25, 14, 09, 00); }
-        private Manip SafeTravel() { return new Manip(ManipController.TimeZones.CEST, 11, 05, 2021, 16, 45, 00); }
-        private Manip PinkTail() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 27); }
-        private Manip MysidiaOrdealsZot() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 08); }
+        private Manip MysidiaOrdeals() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 08); }
+        private Manip RainbowPudding() { return new Manip(ManipController.TimeZones.CEST, 29, 03, 25, 12, 16, 31); }
+        private Manip Underworld() { return new Manip(ManipController.TimeZones.CEST, 29, 05, 25, 19, 24, 00); }
         private Manip Lugae() { return new Manip(ManipController.TimeZones.CEST, 01, 03, 25, 23, 31, 31); }
         private Manip BabilRubi() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 17); }
-        
+        private Manip SealedCaveFF4() {return new Manip(ManipController.TimeZones.CEST, 09, 06, 25, 13, 33, 26); }
+        private Manip SafeTravel() { return new Manip(ManipController.TimeZones.CEST, 11, 05, 2021, 16, 45, 00); }
+        private Manip DragonOneCycle() { return new Manip(ManipController.TimeZones.CEST, 25, 05, 25, 11, 55, 22); }
+        private Manip PinkTail() { return new Manip(ManipController.TimeZones.CEST, 24, 04, 2021, 16, 20, 27); }
     }
 }

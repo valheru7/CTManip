@@ -80,13 +80,16 @@
                 <TabItem Header="FF4" Width="50">
                     <StackPanel>
                         <Button Width="150" Click="StartManip">New Game</Button>
-                        <Button Width="150" Click="StartManip">Rainbow Pudding</Button>
                         <Button Width="150" Click="StartManip">Octomammoth</Button>
-                        <Button Width="150" Click="StartManip">Safe Travel</Button>
-                        <Button Width="150" Click="StartManip">Pink Tail</Button>
-                        <Button Width="150" Click="StartManip">Mysidia/Ordeals/Zot</Button>
+                        <Button Width="150" Click="StartManip">Mysidia/Ordeals</Button>
+                        <Button Width="150" Click="StartManip">Rainbow Pudding</Button>
+                        <Button Width="150" Click="StartManip">Underworld</Button>
                         <Button Width="150" Click="StartManip">Lugae</Button>
                         <Button Width="150" Click="StartManip">Babil/Rubi</Button>
+                        <Button Width="150" Click="StartManip">Sealed Cave</Button>
+                        <Button Width="150" Click="StartManip">Safe Travel</Button>
+                        <Button Width="150" Click="StartManip">Dragon One Cycle</Button>
+                        <Button Width="150" Click="StartManip">Pink Tail</Button>
                     </StackPanel>
                 </TabItem>
             </TabControl>
