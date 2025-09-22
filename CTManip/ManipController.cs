@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.JavaScript;
 using System.Threading;
 using System.Windows;
 
-namespace FF34Manip
+namespace CTManip
 {
     public class ManipController
     {

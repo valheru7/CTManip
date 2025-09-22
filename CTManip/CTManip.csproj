@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <LangVersion>10</LangVersion>
+        <AssemblyName>CTManip</AssemblyName>
+        <RootNamespace>CTManip</RootNamespace>
+    <!-- Disable automatic generation of assembly attributes because we provide them in Properties/AssemblyInfo.cs -->
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Update="Manip.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Manip.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="ManipList.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>

@@ -11,7 +11,7 @@ This tool assists with system time configuration for FF3 and FF4 PC (3D).\
 This is due to the required admin privileges in configuring date and time.
 If you run into issues, you will lose internet access - see Troubleshooting below.
 
-Download the latest release from the [Releases page](https://github.com/Ricky-James/FF34Manip/releases) \
+Download the latest release from the [Releases page](https://github.com/valheru7/CTManip/releases) \
 .NET 7 or higher required. You should be prompted to download it automatically if you don't already have it.
 
 1. Have FF3/4 Launcher open.

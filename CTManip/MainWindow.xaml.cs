@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace FF34Manip
+namespace CTManip
 {
     public partial class MainWindow : Window
     {

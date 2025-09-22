@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FF34Manip
+namespace CTManip
 {
     public class ManipList
     {

@@ -1,4 +1,4 @@
-﻿namespace FF34Manip
+﻿namespace CTManip
 {
     public struct Manip
     {
