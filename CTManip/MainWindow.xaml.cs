@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,61 +47,36 @@ namespace CTManip
 
         private void StartManip(object sender, RoutedEventArgs args)
         {
-            Dictionary<string, ManipList.ManipNames> inputToManipMap = new Dictionary<string, ManipList.ManipNames>
-            {
-                // FF3
-                { "Altar Cave", ManipList.ManipNames.AltarCave },
-                { "Sealed Cave", ManipList.ManipNames.SealedCave},
-                { "Dragon's Peak", ManipList.ManipNames.DragonsPeak},
-                { "Tozus Tunnel", ManipList.ManipNames.TozusTunnel},
-                { "To Tower of Owen", ManipList.ManipNames.ToTowerOfOwen},
-                { "Tower of Owen", ManipList.ManipNames.TowenOfOwen},
-                { "Subterranean Lake", ManipList.ManipNames.SubterraneanLake},
-                { "Molten Cave", ManipList.ManipNames.MoltenCave},
-                { "Hein's Castle", ManipList.ManipNames.HeinCastle},
-                { "Cave of Tides", ManipList.ManipNames.CaveOfTides},
-                { "Amur Sewers", ManipList.ManipNames.Sewers},
-                { "Chocobo's Wrath", ManipList.ManipNames.ChocoboWrath },
-                { "Goldor Manor", ManipList.ManipNames.GoldorManor },
-                { "Garuda", ManipList.ManipNames.Garuda },
-                { "Cave of the Circle", ManipList.ManipNames.CaveOfTheCircle },
-                { "Saronia Catacombs", ManipList.ManipNames.SaroniaCatacombs },
-                { "Ancients' Maze", ManipList.ManipNames.AncientsMaze },
-                { "Cave of Shadows", ManipList.ManipNames.CaveOfShadows },
-                { "Shining Curtain", ManipList.ManipNames.ShiningCurtain },
-                { "Doga's Grotto", ManipList.ManipNames.DogasGrotto },
-                { "To Xande", ManipList.ManipNames.ToXande },
-                { "World of Darkness", ManipList.ManipNames.WorldOfDarkness },
-                { "Cloud of Darkness", ManipList.ManipNames.CloudOfDarkness },
-                
-                // FF4
-                { "New Game", ManipList.ManipNames.NewGame },
-                { "Octomammoth", ManipList.ManipNames.Octomammoth },
-                { "Mysidia/Ordeals", ManipList.ManipNames.MysidiaOrdeals },
-                { "Rainbow Pudding", ManipList.ManipNames.RainbowPudding },
-                { "Underworld", ManipList.ManipNames.Underworld },
-                { "Lugae", ManipList.ManipNames.Lugae },
-                { "Babil/Rubi", ManipList.ManipNames.BabilRubi },
-                { "Sealed Cave FF4", ManipList.ManipNames.SealedCaveFF4 },
-                { "Safe Travel", ManipList.ManipNames.SafeTravel },
-                { "Dragon One Cycle", ManipList.ManipNames.DragonOneCycle },
-                { "Pink Tail", ManipList.ManipNames.PinkTail },
-                
-                
-                
+            // Determine the button text and normalize it to attempt a match against the enum.
+            string? buttonText = (args.Source as Button)?.Content?.ToString(); // Text on the button
+            if (string.IsNullOrWhiteSpace(buttonText))
+                throw new ArgumentNullException(nameof(buttonText));
 
-            };
-            
-            string? buttonText = (args.Source as Button).Content.ToString(); // Text on the button
-            
-            if (inputToManipMap.ContainsKey(buttonText))
-            { 
-                ManipController.ExecuteManip(inputToManipMap[buttonText]);
-            }
-            else
+            // Normalize: keep letters and digits only (e.g. "Nizbel 2" => "Nizbel2", "New Game" => "NewGame")
+            string normalized = new string(buttonText.Where(char.IsLetterOrDigit).ToArray());
+
+            // Try parse into the enum (case-insensitive). This avoids compile-time references to enum members
+            // and will succeed for any ManipNames that actually exist.
+            if (Enum.TryParse<ManipList.ManipNames>(normalized, ignoreCase: true, out var manip))
             {
-                throw new NotSupportedException(sender + " not a recognised or implemented manip");
+                ManipController.ExecuteManip(manip);
+                return;
             }
+
+            // If not parseable, try a small display->enum fallback mapping for any special cases.
+            var fallback = new Dictionary<string, ManipList.ManipNames>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "Nizbel 2", ManipList.ManipNames.Nizbel2 }
+                // add other manual mappings here if needed
+            };
+
+            if (fallback.TryGetValue(buttonText, out manip))
+            {
+                ManipController.ExecuteManip(manip);
+                return;
+            }
+
+            throw new NotSupportedException(buttonText + " not a recognised or implemented manip");
         }
 
         // Check for valid positive and negative integers

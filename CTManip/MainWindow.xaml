@@ -47,52 +47,27 @@
                          Text=""/>
             </DockPanel>
         
-            <TabControl x:Name="tabControl" TabStripPlacement="Top" HorizontalContentAlignment="Stretch" Style="{StaticResource TabControlStyle}">
-                <TabItem Header="FF3" Width="50">
-                    <StackPanel>
-                        <Button Width="150" Click="StartManip">Altar Cave</Button>
-                        <Button Width="150" Click="StartManip">Sealed Cave</Button>
-                        <Button Width="150" Click="StartManip">Dragon's Peak</Button>
-                        <Button Width="150" Click="StartManip">Tozus Tunnel</Button>
-                        <Button Width="150" Click="StartManip">To Tower of Owen</Button>
-                        <Button Width="150" Click="StartManip">Tower of Owen</Button>
-                        <Button Width="150" Click="StartManip">Subterranean Lake</Button>
-                        <Button Width="150" Click="StartManip">Molten Cave</Button>
-                        <Button Width="150" Click="StartManip">Hein's Castle</Button>
-                        <Button Width="150" Click="StartManip">Cave of Tides</Button>
-                        <Button Width="150" Click="StartManip">Amur Sewers</Button>
-                        <Button Width="150" Click="StartManip">Chocobo's Wrath</Button>
-                        <Button Width="150" Click="StartManip">Goldor Manor</Button>
-                        <Button Width="150" Click="StartManip">Garuda</Button>
-                        <Button Width="150" Click="StartManip">Cave of the Circle</Button>
-                        <Button Width="150" Click="StartManip">Saronia Catacombs</Button>
-                        <Button Width="150" Click="StartManip">Ancients' Maze</Button>
-                        <Button Width="150" Click="StartManip">Cave of Shadows</Button>
-                        <Button Width="150" Click="StartManip">Shining Curtain</Button>
-                        <Button Width="150" Click="StartManip">Doga's Grotto</Button>
-                        <Button Width="150" Click="StartManip">To Xande</Button>
-                        <Button Width="150" Click="StartManip">World of Darkness</Button>
-                        <Button Width="150" Click="StartManip">Cloud of Darkness</Button>
-
-                    </StackPanel>
-                </TabItem>
-
-                <TabItem Header="FF4" Width="50">
-                    <StackPanel>
-                        <Button Width="150" Click="StartManip">New Game</Button>
-                        <Button Width="150" Click="StartManip">Octomammoth</Button>
-                        <Button Width="150" Click="StartManip">Mysidia/Ordeals</Button>
-                        <Button Width="150" Click="StartManip">Rainbow Pudding</Button>
-                        <Button Width="150" Click="StartManip">Underworld</Button>
-                        <Button Width="150" Click="StartManip">Lugae</Button>
-                        <Button Width="150" Click="StartManip">Babil/Rubi</Button>
-                        <Button Width="150" Click="StartManip">Sealed Cave FF4</Button>
-                        <Button Width="150" Click="StartManip">Safe Travel</Button>
-                        <Button Width="150" Click="StartManip">Dragon One Cycle</Button>
-                        <Button Width="150" Click="StartManip">Pink Tail</Button>
-                    </StackPanel>
-                </TabItem>
-            </TabControl>
+            <StackPanel>
+                <Button Width="150" Click="StartManip">Nagas</Button>
+                <Button Width="150" Click="StartManip">Zombor</Button>
+                <Button Width="150" Click="StartManip">Masamune</Button>
+                <Button Width="150" Click="StartManip">Nizbel</Button>
+                <Button Width="150" Click="StartManip">Flea</Button>
+                <Button Width="150" Click="StartManip">Magus</Button>
+                <Button Width="150" Click="StartManip">Nizbel 2</Button>
+                <Button Width="150" Click="StartManip">Black Tyranno</Button>
+                <Button Width="150" Click="StartManip">Mud Imp</Button>
+                <Button Width="150" Click="StartManip">Woe Rubble</Button>
+                <Button Width="150" Click="StartManip">Golem Twins</Button>
+                <Button Width="150" Click="StartManip">Ghosts</Button>
+                <Button Width="150" Click="StartManip">Rust Rubbles</Button>
+                <Button Width="150" Click="StartManip">Rust Tyranno</Button>
+                <Button Width="150" Click="StartManip">Son of Sun</Button>
+                <Button Width="150" Click="StartManip">Yakra XIII</Button>
+                <Button Width="150" Click="StartManip">Black Omen</Button>
+                <Button Width="150" Click="StartManip">Lavos Shell</Button>
+                <Button Width="150" Click="StartManip">Lavos Core</Button>
+            </StackPanel>
         </StackPanel>
         <Label Content="{Binding AppVersion, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Label>
     </Grid>

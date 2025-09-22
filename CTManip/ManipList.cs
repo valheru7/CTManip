@@ -20,90 +20,49 @@ namespace CTManip
         {
             manipNameToFunc = new Dictionary<ManipNames, Func<Manip>>
             {
-                // FF3
-                {ManipNames.AltarCave, AltarCave},
-                {ManipNames.SealedCave, SealedCave},
-                {ManipNames.DragonsPeak, DragonsPeak},
-                {ManipNames.TozusTunnel, TozusTunnel},
-                {ManipNames.ToTowerOfOwen, ToTowerOfOwen},
-                {ManipNames.TowenOfOwen, TowenOfOwen},
-                {ManipNames.SubterraneanLake, SubterraneanLake},
-                {ManipNames.MoltenCave, MoltenCave},
-                {ManipNames.HeinCastle, HeinCastle},
-                {ManipNames.CaveOfTides, CaveOfTides},
-                {ManipNames.Sewers, Sewers},
-                {ManipNames.ChocoboWrath, ChocoboWrath},
-                {ManipNames.GoldorManor, GoldorManor},
-                {ManipNames.Garuda, Garuda},
-                {ManipNames.CaveOfTheCircle, CaveOfTheCircle},
-                {ManipNames.SaroniaCatacombs, SaroniaCatacombs},
-                {ManipNames.AncientsMaze, AncientsMaze},
-                {ManipNames.CaveOfShadows, CaveOfShadows},
-                {ManipNames.ShiningCurtain, ShiningCurtain},
-                {ManipNames.DogasGrotto, DogasGrotto},
-                {ManipNames.ToXande, ToXande},
-                {ManipNames.WorldOfDarkness, WorldOfDarkness},
-                {ManipNames.CloudOfDarkness, CloudOfDarkness},
-                
-                
-                // FF4
-                {ManipNames.NewGame, NewGame},
-                {ManipNames.Octomammoth, Octomammoth},
-                {ManipNames.MysidiaOrdeals, MysidiaOrdeals},
-                {ManipNames.RainbowPudding, RainbowPudding},
-                {ManipNames.Underworld, Underworld },
-                {ManipNames.Lugae, Lugae },
-                {ManipNames.BabilRubi, BabilRubi },
-                {ManipNames.SealedCaveFF4, SealedCaveFF4 }, 
-                {ManipNames.SafeTravel, SafeTravel},
-                {ManipNames.DragonOneCycle, DragonOneCycle },
-                {ManipNames.PinkTail, PinkTail},
-                
-                
-                
+                { ManipNames.Nagas, NewGame },
+                { ManipNames.Zombor, NewGame },
+                { ManipNames.Masamune, SealedCaveFF4 },
+                { ManipNames.Nizbel, RainbowPudding },
+                { ManipNames.Flea, NewGame },
+                { ManipNames.Magus, NewGame },
+                { ManipNames.Nizbel2, SafeTravel },
+                { ManipNames.BlackTyranno, NewGame },
+                { ManipNames.MudImp, SealedCave },
+                { ManipNames.WoeRubble, NewGame },
+                { ManipNames.GolemTwins, Octomammoth },
+                { ManipNames.Ghosts, Sewers},
+                { ManipNames.RustRubbles, NewGame },
+                { ManipNames.RustTyranno, AltarCave },
+                { ManipNames.SonOfSun, Underworld },
+                { ManipNames.YakraXIII, RainbowPudding },
+                { ManipNames.BlackOmen, Octomammoth },
+                { ManipNames.LavosShell, NewGame },
+                { ManipNames.LavosCore, RainbowPudding }
             };
         }
         
         public enum ManipNames 
         {
-            // FF3
-            AltarCave,
-            SealedCave,
-            DragonsPeak,
-            TozusTunnel,
-            ToTowerOfOwen,
-            TowenOfOwen,
-            SubterraneanLake,
-            MoltenCave,
-            HeinCastle,
-            CaveOfTides,
-            Sewers,
-            ChocoboWrath,
-            GoldorManor,
-            Garuda,
-            CaveOfTheCircle,
-            SaroniaCatacombs,
-            AncientsMaze,
-            CaveOfShadows,
-            ShiningCurtain,
-            DogasGrotto,
-            ToXande,
-            WorldOfDarkness,
-            CloudOfDarkness,
-            
-            // FF4
-            NewGame,
-            Octomammoth,
-            MysidiaOrdeals,
-            RainbowPudding,
-            Underworld,
-            Lugae,
-            BabilRubi,
-            SealedCaveFF4,
-            SafeTravel,
-            DragonOneCycle,
-            PinkTail,
-
+            Nagas,
+            Zombor,
+            Masamune,
+            Nizbel,
+            Flea,
+            Magus,
+            Nizbel2,
+            BlackTyranno,
+            MudImp,
+            WoeRubble,
+            GolemTwins,
+            Ghosts,
+            RustRubbles,
+            RustTyranno,
+            SonOfSun,
+            YakraXIII,
+            BlackOmen,
+            LavosShell,
+            LavosCore
         }
         
         // FF3
