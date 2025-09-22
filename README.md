@@ -1,5 +1,5 @@
-# FF3/4 Manip Tool
-This tool assists with system time configuration for FF3 and FF4 PC (3D).\
+# Chrono Trigger PC Manip Tool
+This tool assists with system time configuration for Chrono Trigger PC / Steam.\
 **Windows only** - Windows versions older than Windows 10 are untested and unsupported.
 
 ### Warning: Altering system time may cause severe issues, including data loss, software malfunction, network problems, and instability.
@@ -14,9 +14,10 @@ If you run into issues, you will lose internet access - see Troubleshooting belo
 Download the latest release from the [Releases page](https://github.com/valheru7/CTManip/releases) \
 .NET 7 or higher required. You should be prompted to download it automatically if you don't already have it.
 
-1. Have FF3/4 Launcher open.
-2. Click the manip you want to use.
-3. Press Play on launcher.
+1. Have Chrono Trigger on a save or autosave you want to manipulate
+2. ALT-F4 / Close the game
+3. Click the manip you want to use on this tool
+4. Open Chrono Trigger and load your save (or Resume bookmark)
 
 System time and date should be set when clicking the button.\
 System time and date should automatically revert when the game is launched.
@@ -28,3 +29,6 @@ System time and date should automatically revert when the game is launched.
  Open CMD as administrator and run "w32tm /register"
 * Wrong timezone after closing the program:
  Right-click system time -> Adjust Date & Time -> Change Time zone
+
+**Attributions**
+Based on the wonderous work from [F34Manip](https://github.com/Ricky-James/FF34Manip) 
