@@ -1,4 +1,5 @@
 # Chrono Trigger PC Manip Tool
+![CTManip screenshot](ctmanip.png)
 This tool assists with system time configuration for Chrono Trigger PC / Steam.\
 **Windows only** - Windows versions older than Windows 10 are untested and unsupported.
 
