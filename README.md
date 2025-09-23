@@ -1,11 +1,13 @@
 # Chrono Trigger PC Manip Tool
-![CTManip screenshot](ctmanip.png)
 This tool assists with system time configuration for Chrono Trigger PC / Steam.\
 **Windows only** - Windows versions older than Windows 10 are untested and unsupported.
 
 ### Warning: Altering system time may cause severe issues, including data loss, software malfunction, network problems, and instability.
 ### I do not assume responsibility for any resulting damage.
 **Proceed with caution.**
+
+
+![CTManip screenshot](ctmanip.png)
 
 ## Usage:
 **UAC (User Account Control) MUST BE DISABLED**

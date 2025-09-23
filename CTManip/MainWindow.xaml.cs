@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Globalization;
 using System.Windows;
+using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -11,7 +11,16 @@ namespace CTManip
 {
     public partial class MainWindow : Window
     {
-        public static string AppVersion => $"Version 1.5 - 2025-07-01";
+        public static string AppVersion
+        {
+            get
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                var infoAttr = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+                string version = infoAttr?.InformationalVersion ?? assembly.GetName().Version?.ToString() ?? "0.0";
+                return $"Version {version} - {DateTime.Now:yyyy-MM-dd}";
+            }
+        }
         public ManipController ManipController = new ManipController();
         public static string systemDateFormat;
         public static short timeOffset = 0;
@@ -47,36 +56,39 @@ namespace CTManip
 
         private void StartManip(object sender, RoutedEventArgs args)
         {
-            // Determine the button text and normalize it to attempt a match against the enum.
-            string? buttonText = (args.Source as Button)?.Content?.ToString(); // Text on the button
-            if (string.IsNullOrWhiteSpace(buttonText))
-                throw new ArgumentNullException(nameof(buttonText));
-
-            // Normalize: keep letters and digits only (e.g. "Nizbel 2" => "Nizbel2", "New Game" => "NewGame")
-            string normalized = new string(buttonText.Where(char.IsLetterOrDigit).ToArray());
-
-            // Try parse into the enum (case-insensitive). This avoids compile-time references to enum members
-            // and will succeed for any ManipNames that actually exist.
-            if (Enum.TryParse<ManipList.ManipNames>(normalized, ignoreCase: true, out var manip))
+            Dictionary<string, ManipList.ManipNames> inputToManipMap = new Dictionary<string, ManipList.ManipNames>
             {
-                ManipController.ExecuteManip(manip);
-                return;
-            }
-
-            // If not parseable, try a small display->enum fallback mapping for any special cases.
-            var fallback = new Dictionary<string, ManipList.ManipNames>(StringComparer.OrdinalIgnoreCase)
-            {
-                { "Nizbel 2", ManipList.ManipNames.Nizbel2 }
-                // add other manual mappings here if needed
+                { "Nagas", ManipList.ManipNames.Nagas },
+                { "Zombor", ManipList.ManipNames.Zombor },
+                { "Masamune", ManipList.ManipNames.Masamune },
+                { "Nizbel", ManipList.ManipNames.Nizbel },
+                { "Flea", ManipList.ManipNames.Flea },
+                { "Magus", ManipList.ManipNames.Magus },
+                { "Nizbel 2", ManipList.ManipNames.Nizbel2 },
+                { "Black Tyranno", ManipList.ManipNames.BlackTyranno },
+                { "Mud Imp", ManipList.ManipNames.MudImp },
+                { "Woe Rubble", ManipList.ManipNames.WoeRubble },
+                { "Golem Twins", ManipList.ManipNames.GolemTwins },
+                { "Ghosts", ManipList.ManipNames.Ghosts },
+                { "Rust Rubbles", ManipList.ManipNames.RustRubbles },
+                { "Rust Tyranno", ManipList.ManipNames.RustTyranno },
+                { "Son of Sun", ManipList.ManipNames.SonOfSun },
+                { "Yakra XIII", ManipList.ManipNames.YakraXIII },
+                { "Black Omen", ManipList.ManipNames.BlackOmen },
+                { "Lavos Shell", ManipList.ManipNames.LavosShell },
+                { "Lavos Core", ManipList.ManipNames.LavosCore }
             };
-
-            if (fallback.TryGetValue(buttonText, out manip))
-            {
-                ManipController.ExecuteManip(manip);
-                return;
+            
+            string? buttonText = (args.Source as Button).Content.ToString(); // Text on the button
+            
+            if (inputToManipMap.ContainsKey(buttonText))
+            { 
+                ManipController.ExecuteManip(inputToManipMap[buttonText]);
             }
-
-            throw new NotSupportedException(buttonText + " not a recognised or implemented manip");
+            else
+            {
+                throw new NotSupportedException(sender + " not a recognised or implemented manip");
+            }
         }
 
         // Check for valid positive and negative integers
