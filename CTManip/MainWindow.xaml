@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:CTManip"
         mc:Ignorable="d"
-    Title="CTManip" Height="700" Width="200">
+    Title="CTManip" Height="Auto" Width="200" SizeToContent="Height">
     
     <!--Tab background colour styling-->
     <Window.Resources>
@@ -47,7 +47,7 @@
                          Text=""/>
             </DockPanel>
         
-            <StackPanel>
+            <StackPanel Margin="0,0,0,40">
                 <Button Width="150" Click="StartManip">Nagas</Button>
                 <Button Width="150" Click="StartManip">Zombor</Button>
                 <Button Width="150" Click="StartManip">Masamune</Button>
@@ -69,6 +69,6 @@
                 <Button Width="150" Click="StartManip">Lavos Core</Button>
             </StackPanel>
         </StackPanel>
-        <Label Content="{Binding AppVersion, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Label>
+    <Label Content="{Binding AppVersion, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,8" />
     </Grid>
 </Window>
