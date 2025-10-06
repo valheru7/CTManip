@@ -21,24 +21,24 @@ namespace CTManip
             manipNameToFunc = new Dictionary<ManipNames, Func<Manip>>
             {
                 { ManipNames.Nagas, NewGame },
-                { ManipNames.Zombor, NewGame },
+                { ManipNames.Zombor, Zombor },
                 { ManipNames.Masamune, SealedCaveFF4 },
                 { ManipNames.Nizbel, RainbowPudding },
-                { ManipNames.Flea, NewGame },
-                { ManipNames.Magus, NewGame },
+                { ManipNames.Flea, Flea },
+                { ManipNames.Magus, Magus },
                 { ManipNames.Nizbel2, SafeTravel },
-                { ManipNames.BlackTyranno, NewGame },
-                { ManipNames.MudImp, SealedCave },
-                { ManipNames.WoeRubble, NewGame },
+                { ManipNames.BlackTyranno, BlackTyranno },
+                { ManipNames.MudImp, MudImp },
+                { ManipNames.WoeRubble, WoeRubble },
                 { ManipNames.GolemTwins, Octomammoth },
-                { ManipNames.Ghosts, Sewers},
-                { ManipNames.RustRubbles, NewGame },
-                { ManipNames.RustTyranno, AltarCave },
-                { ManipNames.SonOfSun, Underworld },
+                { ManipNames.Ghosts, Ghosts},
+                { ManipNames.RustRubbles, RustRubbles },
+                { ManipNames.RustTyranno, RustTyranno },
+                { ManipNames.SonOfSun, SonOfSun },
                 { ManipNames.YakraXIII, RainbowPudding },
-                { ManipNames.BlackOmen, Octomammoth },
-                { ManipNames.LavosShell, NewGame },
-                { ManipNames.LavosCore, RainbowPudding }
+                { ManipNames.BlackOmen, BlackOmen },
+                { ManipNames.LavosShell, LavosShell },
+                { ManipNames.LavosCore, LavosCore }
             };
         }
         
@@ -64,7 +64,25 @@ namespace CTManip
             LavosShell,
             LavosCore
         }
+
+        // CT
+        private Manip Flea() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        private Manip Zombor() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        private Manip Magus() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        private Manip BlackTyranno() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        private Manip MudImp() { return new Manip(ManipController.TimeZones.CEST, 02, 05, 24, 09, 48, 09); }
+        private Manip WoeRubble() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        private Manip Ghosts() { return new Manip(ManipController.TimeZones.CEST, 05, 04, 24, 19, 35, 12); }
+        private Manip RustRubbles() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
+        private Manip RustTyranno() { return new Manip(ManipController.TimeZones.GMT, 10, 04, 21, 19, 43, 18); }      
+        private Manip SonOfSun() { return new Manip(ManipController.TimeZones.CEST, 29, 05, 25, 19, 24, 01); }
+        private Manip BlackOmen() { return new Manip(ManipController.TimeZones.CEST, 15, 03, 25, 14, 09, 01); }
+        private Manip LavosShell() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        private Manip LavosCore() { return new Manip(ManipController.TimeZones.CEST, 29, 03, 25, 12, 16, 32); }
         
+
+
+
         // FF3
         private Manip AltarCave() { return new Manip(ManipController.TimeZones.GMT, 10, 04, 21, 19, 43, 17); }
         private Manip SealedCave() { return new Manip(ManipController.TimeZones.CEST, 02, 05, 24, 09, 48, 08); }

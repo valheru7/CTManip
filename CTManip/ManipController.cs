@@ -29,7 +29,13 @@ namespace CTManip
             public const string CEST = "W. Europe Standard Time";
             // Add more as needed - string needs to match output from tzutil.exe /l
         }
-        
+
+        ProcessStartInfo psi = new ProcessStartInfo
+        {
+            FileName = "steam://rungameid/613830",
+            UseShellExecute = true
+        };
+
         private DateFormats GetDateFormat()
         {
             string datePattern = MainWindow.systemDateFormat;
@@ -47,7 +53,7 @@ namespace CTManip
 
         private bool GameRunning()
         {
-            return Process.GetProcessesByName("FF3_Win32").Length > 0 || Process.GetProcessesByName("FF4").Length > 0;
+            return Process.GetProcessesByName("Chrono Trigger").Length > 0;
         }
 
         public void ExecuteManip(ManipList.ManipNames name)
@@ -63,25 +69,25 @@ namespace CTManip
         private void SetTimeZone(string targetTimeZone)
         {
             string args = "/s \"" + targetTimeZone + "\"";
-            using(Process setTimeZoneProcess = new Process
-                  {
-                      StartInfo = new ProcessStartInfo
-                      {
-                          FileName = "tzutil.exe",
-                          Arguments = args,
-                          CreateNoWindow = true,
-                          WindowStyle = ProcessWindowStyle.Hidden
-                      }
-                  })
+            using (Process setTimeZoneProcess = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "tzutil.exe",
+                    Arguments = args,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            })
             {
                 setTimeZoneProcess.Start();
                 setTimeZoneProcess.WaitForExit();
                 setTimeZoneProcess.Close();
             }
-            
+
             currentTimeZone = targetTimeZone;
         }
-        
+
         private void SetDate(Manip targetManip)
         {
             string date = string.Empty;
@@ -111,7 +117,9 @@ namespace CTManip
                         Verb = "runas",
                         UseShellExecute = true,
                         WindowStyle = ProcessWindowStyle.Hidden
-                    }}) {
+                    }
+                })
+                {
                     setDateProcess.Start();
                     setDateProcess.WaitForExit();
                     setDateProcess.Close();
@@ -127,7 +135,7 @@ namespace CTManip
             string time = targetManip.Hour + ":" + targetManip.Minute + ":" + targetManip.Second + ".00";
             if (timeAdjustedForOffset)
                 return time;
-            
+
             targetManip.Second += MainWindow.timeOffset;
             if (targetManip.Second < 0)
             {
@@ -149,18 +157,18 @@ namespace CTManip
         private void SetTime(Manip targetManip)
         {
             using (Process SetTimeProcess = new Process
-                   {
-                       StartInfo = new ProcessStartInfo
-                       {
-                           FileName = "cmd.exe",
-                           Arguments = $"/C time {ParseTime(ref targetManip)}",
-                           CreateNoWindow = true,
-                           Verb = "runas",
-                           UseShellExecute = true,
-                           WindowStyle = ProcessWindowStyle.Hidden
-                       }
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = $"/C time {ParseTime(ref targetManip)}",
+                    CreateNoWindow = true,
+                    Verb = "runas",
+                    UseShellExecute = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
 
-                   })
+            })
             {
                 //Console.WriteLine(System.DateTime.Now.Millisecond);
                 timeAdjustedForOffset = true;
@@ -168,7 +176,7 @@ namespace CTManip
                 SetTimeProcess.WaitForExit();
                 SetTimeProcess.Close();
             }
-            
+
             // Continuously set time until either game is launched or the app is closed
             try
             {
@@ -195,26 +203,28 @@ namespace CTManip
             {
                 SetTimeZone(targetManip.TimeZone);
             }
-            
+
             SetDate(targetManip);
+
+            Process.Start(psi);
             SetTime(targetManip);
         }
-        
+
         private void RevertTime()
         {
             // Small buffer to allow the game to launch before reverting
             Thread.Sleep(2000);
             // Revert Time zone
-            using(Process timeZoneRevertProcess = new Process
-                  {
-                      StartInfo = new ProcessStartInfo
-                      {
-                          FileName = "tzutil.exe",
-                          Arguments = $"/s \"{savedTimeZone}\"",
-                          CreateNoWindow = true,
-                          WindowStyle = ProcessWindowStyle.Hidden
-                      }
-                  })
+            using (Process timeZoneRevertProcess = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "tzutil.exe",
+                    Arguments = $"/s \"{savedTimeZone}\"",
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            })
             {
                 timeZoneRevertProcess.Start();
                 timeZoneRevertProcess.WaitForExit();
@@ -226,17 +236,17 @@ namespace CTManip
             timeAdjustedForOffset = false;
 
             using (Process syncProcess = new Process
-                   {
-                       StartInfo = new ProcessStartInfo
-                       {
-                           FileName = "w32tm.exe",
-                           Arguments = "/resync",
-                           CreateNoWindow = true,
-                           Verb = "runas",
-                           UseShellExecute = true,
-                           WindowStyle = ProcessWindowStyle.Hidden
-                       }
-                   })
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "w32tm.exe",
+                    Arguments = "/resync",
+                    CreateNoWindow = true,
+                    Verb = "runas",
+                    UseShellExecute = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            })
             {
                 syncProcess.Start();
                 syncProcess.WaitForExit();
