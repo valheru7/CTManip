@@ -21,10 +21,12 @@ namespace CTManip
             manipNameToFunc = new Dictionary<ManipNames, Func<Manip>>
             {
                 { ManipNames.NewGame, NewGameCT },
+                { ManipNames.Yakra, Yakra },
                 { ManipNames.Nagas, Nagas },
+                { ManipNames.DragonTank, DragonTank },
                 { ManipNames.Zombor, Zombor },
                 { ManipNames.Masamune, Masamune },
-                { ManipNames.Nizbel, RainbowPudding },
+                { ManipNames.Nizbel, Nizbel },
                 { ManipNames.Flea4Heal, Flea4Heal },
                 { ManipNames.Flea5Heal, Flea5Heal },
                 { ManipNames.Magus, Magus },
@@ -111,7 +113,9 @@ namespace CTManip
         public enum ManipNames
         {
             NewGame,
+            Yakra,
             Nagas,
+            DragonTank,
             Zombor,
             Masamune,
             Nizbel,
@@ -168,15 +172,20 @@ namespace CTManip
 
         // CT
         
-        private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 29, 06, 2016, 01, 54, 57); }
+        private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 13, 10, 2004, 01, 39, 00); }
+        private Manip NewGameCTNoXStrike() { return new Manip(ManipController.TimeZones.UTC, 28, 06, 2030, 20, 08, 39); }
+        private Manip Yakra() { return new Manip(ManipController.TimeZones.ET, 14, 11, 2023, 17, 20, 53); }
+        private Manip DragonTank() { return new Manip(ManipController.TimeZones.UTC, 08, 05, 2031, 21, 05, 17); }
+        private Manip NewGameCT_XstrikeGrind() { return new Manip(ManipController.TimeZones.UTC, 29, 06, 2016, 01, 54, 57); }
         private Manip NewGameCTOld() { return new Manip(ManipController.TimeZones.UTC, 10, 11, 2021, 10, 49, 31); }
         private Manip Nagas() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
         private Manip Masamune() {return new Manip(ManipController.TimeZones.GMT, 18, 11, 23, 8, 6, 20); }  
+        private Manip Zombor() {return new Manip(ManipController.TimeZones.UTC, 12, 08, 2017, 04, 57, 06); }  
+        private Manip Nizbel() {return new Manip(ManipController.TimeZones.UTC, 23, 08, 2026, 15, 57, 50); }  
         private Manip Flea5Heal() { return new Manip(ManipController.TimeZones.UTC, 14, 12, 2002, 11, 21, 00); }
         private Manip Flea4Heal() { return new Manip(ManipController.TimeZones.UTC, 15, 06, 2026, 12, 33, 40); }
         private Manip FleaOld() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
-        private Manip Zombor() { return new Manip(ManipController.TimeZones.UTC, 15, 06, 2025, 15, 06, 43); }
-        private Manip ZomborOld() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 08); }
+        private Manip ZomborOld() { return new Manip(ManipController.TimeZones.UTC, 15, 06, 2025, 15, 06, 43); }
         private Manip Magus() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
         private Manip BlackTyranno() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
         private Manip MudImp() { return new Manip(ManipController.TimeZones.UTC, 01, 04, 2026, 15, 47, 21); }

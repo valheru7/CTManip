@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:CTManip"
         mc:Ignorable="d"
-    Title="CTManip" Height="Auto" Width="200" SizeToContent="Height">
+    Title="CTManip" Height="Auto" Width="400" SizeToContent="Height">
     
     <!--Tab background colour styling-->
     <Window.Resources>
@@ -50,27 +50,35 @@
 
                 <!-- Offset control removed -->
             
-                <StackPanel x:Name="ManipButtonsPanel" Margin="0,0,0,40">
-                    <Button Width="150" Click="StartManip">New Game</Button>
-                    <Button Width="150" Click="StartManip">Nagas</Button>
-                    <Button Width="150" Click="StartManip">Zombor</Button>
-                    <Button Width="150" Click="StartManip">Masamune</Button>
-                    <Button Width="150" Click="StartManip">Nizbel</Button>
-                    <Button Width="150" Click="StartManip">Flea</Button>
-                    <Button Width="150" Click="StartManip">Magus</Button>
-                    <Button Width="150" Click="StartManip">Black Tyranno</Button>
-                    <Button Width="150" Click="StartManip">Mud Imp</Button>
-                    <Button Width="150" Click="StartManip">Woe Rubble</Button>
-                    <Button Width="150" Click="StartManip">Golem Twins</Button>
-                    <Button Width="150" Click="StartManip">Ghosts</Button>
-                    <Button Width="150" Click="StartManip">Rust Rubbles</Button>
-                    <Button Width="150" Click="StartManip">Rust Tyranno</Button>
-                    <Button Width="150" Click="StartManip">Son of Sun</Button>
-                    <Button Width="150" Click="StartManip">Yakra XIII</Button>
-                    <Button Width="150" Click="StartManip">Black Omen</Button>
-                    <Button Width="150" Click="StartManip">Lavos Shell</Button>
-                    <Button Width="150" Click="StartManip">Lavos Core</Button>
-                </StackPanel>
+                <Grid x:Name="ManipButtonsPanel" Margin="0,0,0,40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Button Width="150" Click="StartManip">New Game</Button>
+                        <Button Width="150" Click="StartManip">Nizbel</Button>
+                        <Button Width="150" Click="StartManip">Flea</Button>
+                        <Button Width="150" Click="StartManip">Magus</Button>
+                        <Button Width="150" Click="StartManip">Black Tyranno</Button>
+                        <Button Width="150" Click="StartManip">Mud Imp</Button>
+                        <Button Width="150" Click="StartManip">Ghosts</Button>
+                        <Button Width="150" Click="StartManip">Rust Tyranno</Button>
+                        <Button Width="150" Click="StartManip">Son of Sun</Button>
+                        <Button Width="150" Click="StartManip">Black Omen</Button>
+                        <Button Width="150" Click="StartManip">Lavos Shell</Button>
+                        <Button Width="150" Click="StartManip">Lavos Core</Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Button Width="150" Click="StartManip">Nagas</Button>
+                        <Button Width="150" Click="StartManip">Yakra</Button>
+                        <Button Width="150" Click="StartManip">Dragon Tank</Button>
+                        <Button Width="150" Click="StartManip">Zombor</Button>
+                        <Button Width="150" Click="StartManip">Masamune</Button>
+                        <Button Width="150" Click="StartManip">Woe Rubble</Button>
+                        <Button Width="150" Click="StartManip">Rust Rubbles</Button>
+                    </StackPanel>
+                </Grid>
             </StackPanel>
         </ScrollViewer>
     <Label Content="{Binding AppVersion, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,8" />
