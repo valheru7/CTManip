@@ -21,6 +21,7 @@ namespace CTManip
             manipNameToFunc = new Dictionary<ManipNames, Func<Manip>>
             {
                 { ManipNames.NewGame, NewGameCT },
+                { ManipNames.NewGame_XstrikeGrind, NewGameCT_XstrikeGrind },
                 { ManipNames.Yakra, Yakra },
                 { ManipNames.Nagas, Nagas },
                 { ManipNames.DragonTank, DragonTank },
@@ -113,6 +114,7 @@ namespace CTManip
         public enum ManipNames
         {
             NewGame,
+            NewGame_XstrikeGrind,
             Yakra,
             Nagas,
             DragonTank,
@@ -173,7 +175,6 @@ namespace CTManip
         // CT
         
         private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 13, 10, 2004, 01, 39, 00); }
-        private Manip NewGameCTNoXStrike() { return new Manip(ManipController.TimeZones.UTC, 28, 06, 2030, 20, 08, 39); }
         private Manip Yakra() { return new Manip(ManipController.TimeZones.ET, 14, 11, 2023, 17, 20, 53); }
         private Manip DragonTank() { return new Manip(ManipController.TimeZones.UTC, 08, 05, 2031, 21, 05, 17); }
         private Manip NewGameCT_XstrikeGrind() { return new Manip(ManipController.TimeZones.UTC, 29, 06, 2016, 01, 54, 57); }

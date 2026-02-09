@@ -60,6 +60,7 @@ namespace CTManip
             Dictionary<string, ManipList.ManipNames> inputToManipMap = new Dictionary<string, ManipList.ManipNames>
             {
                 { "New Game", ManipList.ManipNames.NewGame },
+                { "New Game Xstrike", ManipList.ManipNames.NewGame_XstrikeGrind },
                 { "Yakra", ManipList.ManipNames.Yakra },
                 { "Nagas", ManipList.ManipNames.Nagas },
                 { "Dragon Tank", ManipList.ManipNames.DragonTank },

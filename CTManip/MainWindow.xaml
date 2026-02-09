@@ -70,12 +70,14 @@
                         <Button Width="150" Click="StartManip">Lavos Core</Button>
                     </StackPanel>
                     <StackPanel Grid.Column="1">
+                        <Button Width="150" Click="StartManip">New Game Xstrike</Button>
                         <Button Width="150" Click="StartManip">Nagas</Button>
                         <Button Width="150" Click="StartManip">Yakra</Button>
                         <Button Width="150" Click="StartManip">Dragon Tank</Button>
                         <Button Width="150" Click="StartManip">Zombor</Button>
                         <Button Width="150" Click="StartManip">Masamune</Button>
                         <Button Width="150" Click="StartManip">Woe Rubble</Button>
+                        <Button Width="150" Click="StartManip">Golem Twins</Button>
                         <Button Width="150" Click="StartManip">Rust Rubbles</Button>
                     </StackPanel>
                 </Grid>
