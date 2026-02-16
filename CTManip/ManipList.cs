@@ -25,11 +25,10 @@ namespace CTManip
                 { ManipNames.Yakra, Yakra },
                 { ManipNames.Nagas, Nagas },
                 { ManipNames.DragonTank, DragonTank },
-                { ManipNames.Zombor, Zombor },
+                { ManipNames.Zombor, ZomborNoSilverEarring },
                 { ManipNames.Masamune, Masamune },
                 { ManipNames.Nizbel, Nizbel },
-                { ManipNames.Flea4Heal, Flea4Heal },
-                { ManipNames.Flea5Heal, Flea5Heal },
+                { ManipNames.Flea, Flea },
                 { ManipNames.Magus, Magus },
                 { ManipNames.BlackTyranno, BlackTyranno },
                 { ManipNames.MudImp, MudImp },
@@ -121,8 +120,7 @@ namespace CTManip
             Zombor,
             Masamune,
             Nizbel,
-            Flea4Heal,
-            Flea5Heal,
+            Flea,
             Magus,
             Nizbel2,
             BlackTyranno,
@@ -173,30 +171,51 @@ namespace CTManip
         }
 
         // CT
-        
+        // New Game with no Xstrike grind (less encounters)
+        // Goes up through Dragon Tank but requires an extra room transition before the fight
         private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 13, 10, 2004, 01, 39, 00); }
+        // Yakra backup (untested)
         private Manip Yakra() { return new Manip(ManipController.TimeZones.ET, 14, 11, 2023, 17, 20, 53); }
+        // Dragon Tank backup
         private Manip DragonTank() { return new Manip(ManipController.TimeZones.UTC, 08, 05, 2031, 21, 05, 17); }
+        // New game with Xstrike grind. Includes 1 DT crit but requires the extra room transition beforehand
         private Manip NewGameCT_XstrikeGrind() { return new Manip(ManipController.TimeZones.UTC, 29, 06, 2016, 01, 54, 57); }
-        private Manip NewGameCTOld() { return new Manip(ManipController.TimeZones.UTC, 10, 11, 2021, 10, 49, 31); }
+        // Nagas backup
         private Manip Nagas() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
+        // Masamune backup
         private Manip Masamune() {return new Manip(ManipController.TimeZones.GMT, 18, 11, 23, 8, 6, 20); }  
+        // Zombor up through Nizbel (less room transitions , skips silver earring)
+        private Manip ZomborNoSilverEarring() {return new Manip(ManipController.TimeZones.UTC, 13, 10, 1994, 06, 32, 41); }  
+        // Zombor up through Nizbel (requires silver earring)
         private Manip Zombor() {return new Manip(ManipController.TimeZones.UTC, 12, 08, 2017, 04, 57, 06); }  
+        // Nizbel backup (tons of Ayla crits)
         private Manip Nizbel() {return new Manip(ManipController.TimeZones.UTC, 23, 08, 2026, 15, 57, 50); }  
-        private Manip Flea5Heal() { return new Manip(ManipController.TimeZones.UTC, 14, 12, 2002, 11, 21, 00); }
-        private Manip Flea4Heal() { return new Manip(ManipController.TimeZones.UTC, 15, 06, 2026, 12, 33, 40); }
-        private Manip FleaOld() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
-        private Manip ZomborOld() { return new Manip(ManipController.TimeZones.UTC, 15, 06, 2025, 15, 06, 43); }
+        // Flea + Slash + Magus (6 heals after Flea for Slash)
+        private Manip Flea() {return new Manip(ManipController.TimeZones.UTC, 20, 02, 2037, 05, 13, 33); }  
+        // Magus backup
         private Manip Magus() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        // Black Tyranno - puts Azala to sleep
         private Manip BlackTyranno() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        // Mud imp + includes crono crit on Rubble after and up thru golem twins should work
         private Manip MudImp() { return new Manip(ManipController.TimeZones.UTC, 01, 04, 2026, 15, 47, 21); }
+        // Woe Rubble backup (crit)
         private Manip WoeRubble() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        // Ghosts 
+        // 1 counter, 0 counters, 2 counters
+        // This should also have a decent seed for rust rubbles
         private Manip Ghosts() { return new Manip(ManipController.TimeZones.CEST, 05, 04, 24, 19, 35, 12); }
+        // Rust Rubble backup
         private Manip RustRubbles() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
+        // Rust Tyranno 
+        // Charm red plate + 4 Magus crits
         private Manip RustTyranno() { return new Manip(ManipController.TimeZones.GMT, 10, 04, 21, 19, 43, 18); }      
+        // Son of Sun - Always #5 (after initial barrier and shuffle)
         private Manip SonOfSun() { return new Manip(ManipController.TimeZones.CEST, 29, 05, 25, 19, 24, 01); }
+        // Ayla gets all her charms and 0 elevator + 1 elevator
         private Manip BlackOmen() { return new Manip(ManipController.TimeZones.CEST, 15, 03, 25, 14, 09, 01); }
+        // Magus Shell -> Shadow
         private Manip LavosShell() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        // starts with 1000 AD -> 65mil if not fast enough
         private Manip LavosCore() { return new Manip(ManipController.TimeZones.CEST, 29, 03, 25, 12, 16, 32); }
         
 
