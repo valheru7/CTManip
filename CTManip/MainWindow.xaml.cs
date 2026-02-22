@@ -157,7 +157,7 @@ namespace CTManip
             {
                 var normalManips = new[]
                 {
-                    "New Game", "Nagas", "Masamune", "Nizbel", "Flea", "Magus",
+                    "New Game", "Nagas", "Masamune", "Nizbel", "Flea", "Magus", "Nizbel 2",
                     "Black Tyranno", "Woe Rubble", "Golem Twins", "Ghosts",
                     "Rust Rubbles", "Rust Tyranno", "Son of Sun", "Yakra XIII",
                     "Black Omen", "Lavos Shell", "Lavos Core"

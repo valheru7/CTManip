@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:CTManip"
         mc:Ignorable="d"
-    Title="CTManip" Height="Auto" Width="400" SizeToContent="Height">
+    Title="CTManip" Height="Auto" SizeToContent="WidthAndHeight">
     
     <!--Tab background colour styling-->
     <Window.Resources>
@@ -37,7 +37,11 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="Margin" Value="0,5,0,0"/>
+                        <Setter Property="Margin" Value="8"/>
+                        <Setter Property="MinWidth" Value="200"/>
+                        <Setter Property="MinHeight" Value="36"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="Padding" Value="12,8"/>
                         <!-- TODO: update with some click style to indicate active manip-
                         <Style.Triggers>
                             <Trigger Property="IsPressed" Value="True">
@@ -65,6 +69,7 @@
                         <Button Width="150" Click="StartManip">New Game</Button>
                         <Button Width="150" Click="StartManip">Zombor</Button>
                         <Button Width="150" Click="StartManip">Flea</Button>
+                        <Button Width="150" Click="StartManip">Nizbel 2</Button>
                         <Button Width="150" Click="StartManip">Black Tyranno</Button>
                         <Button Width="150" Click="StartManip">Mud Imp</Button>
                         <Button Width="150" Click="StartManip">Ghosts</Button>

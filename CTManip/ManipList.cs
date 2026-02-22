@@ -30,6 +30,7 @@ namespace CTManip
                 { ManipNames.Nizbel, Nizbel },
                 { ManipNames.Flea, Flea },
                 { ManipNames.Magus, Magus },
+                { ManipNames.Nizbel2, Nizbel2 },
                 { ManipNames.BlackTyranno, BlackTyranno },
                 { ManipNames.MudImp, MudImp },
                 { ManipNames.WoeRubble, WoeRubble },
@@ -194,6 +195,9 @@ namespace CTManip
         private Manip Flea() {return new Manip(ManipController.TimeZones.UTC, 20, 02, 2037, 05, 13, 33); }  
         // Magus backup
         private Manip Magus() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
+        // Nizbel 2 - deals with not having silver earring
+        private Manip Nizbel2() {return new Manip(ManipController.TimeZones.UTC, 16, 10, 2030, 23, 12, 34); }  
+        
         // Black Tyranno - puts Azala to sleep
         private Manip BlackTyranno() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
         // Mud imp + includes crono crit on Rubble after and up thru golem twins should work
