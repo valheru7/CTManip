@@ -186,7 +186,7 @@ namespace CTManip
         // Masamune backup
         private Manip Masamune() {return new Manip(ManipController.TimeZones.GMT, 18, 11, 23, 8, 6, 20); }  
         // Zombor up through Nizbel (less room transitions , skips silver earring)
-        private Manip ZomborNoSilverEarring() {return new Manip(ManipController.TimeZones.UTC, 13, 10, 1994, 06, 32, 41); }  
+        private Manip ZomborNoSilverEarring() {return new Manip(ManipController.TimeZones.UTC, 01, 07, 2031, 07, 10, 41); }  
         // Zombor up through Nizbel (requires silver earring)
         private Manip Zombor() {return new Manip(ManipController.TimeZones.UTC, 12, 08, 2017, 04, 57, 06); }  
         // Nizbel backup (tons of Ayla crits)
@@ -196,7 +196,7 @@ namespace CTManip
         // Magus backup
         private Manip Magus() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
         // Nizbel 2 - deals with not having silver earring
-        private Manip Nizbel2() {return new Manip(ManipController.TimeZones.UTC, 16, 10, 2030, 23, 12, 34); }  
+        private Manip Nizbel2() {return new Manip(ManipController.TimeZones.UTC, 12, 04, 2016, 19, 08, 00); }  
         
         // Black Tyranno - puts Azala to sleep
         private Manip BlackTyranno() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
@@ -205,9 +205,15 @@ namespace CTManip
         // Woe Rubble backup (crit)
         private Manip WoeRubble() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 01); }
         // Ghosts 
+        // 0 counter, 0 counters, 0 counters
+        // Frog crits next 2 fights
+        // This should also have a decent seed for rust rubbles ?
+        private Manip Ghosts() { return new Manip(ManipController.TimeZones.UTC, 14, 10, 2023, 10, 50, 05); }
+        // Rust Rubble backup
+        // Ghosts 
         // 1 counter, 0 counters, 2 counters
         // This should also have a decent seed for rust rubbles
-        private Manip Ghosts() { return new Manip(ManipController.TimeZones.CEST, 05, 04, 24, 19, 35, 12); }
+        private Manip Ghosts2Countrs() { return new Manip(ManipController.TimeZones.CEST, 05, 04, 24, 19, 35, 12); }
         // Rust Rubble backup
         private Manip RustRubbles() { return new Manip(ManipController.TimeZones.CEST, 24, 10, 2021, 16, 20, 00); }
         // Rust Tyranno 
