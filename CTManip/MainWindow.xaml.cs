@@ -21,7 +21,7 @@ namespace CTManip
                 return $"Version {version}";
             }
         }
-        public ManipController ManipController = new ManipController();
+        public ManipController ManipController;
         public static string systemDateFormat;
         private bool isBaseRngMode = false;
     // offset removed
@@ -29,6 +29,7 @@ namespace CTManip
         public MainWindow()
         {
             InitializeComponent();
+            ManipController = new ManipController();
             systemDateFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
             InitializeTimeService();
         }
@@ -88,7 +89,8 @@ namespace CTManip
             
             if (inputToManipMap.ContainsKey(buttonText))
             { 
-                ManipController.ExecuteManip(inputToManipMap[buttonText]);
+                bool shouldStartGame = StartGameCheckBox.IsChecked ?? true;
+                ManipController.ExecuteManip(inputToManipMap[buttonText], shouldStartGame);
             }
             else
             {
@@ -245,7 +247,8 @@ namespace CTManip
                 string enumName = $"BaseRNG_{input}";
                 if (Enum.TryParse<ManipList.ManipNames>(enumName, out var baseRngManip))
                 {
-                    ManipController.ExecuteManip(baseRngManip);
+                    bool shouldStartGame = StartGameCheckBox.IsChecked ?? true;
+                    ManipController.ExecuteManip(baseRngManip, shouldStartGame);
                 }
                 else
                 {

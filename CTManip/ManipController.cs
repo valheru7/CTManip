@@ -12,6 +12,12 @@ namespace CTManip
         private string currentTimeZone;
         private string currentDate;
         private bool timeAdjustedForOffset;
+        private bool startGame;
+
+        public ManipController()
+        {
+            startGame = true; // Default to starting the game
+        }
 
         private enum DateFormats
         {
@@ -56,9 +62,10 @@ namespace CTManip
             return Process.GetProcessesByName("Chrono Trigger").Length > 0;
         }
 
-        public void ExecuteManip(ManipList.ManipNames name) 
+        public void ExecuteManip(ManipList.ManipNames name, bool shouldStartGame = true) 
         {   
             savedTimeZone = TimeZoneInfo.Local.StandardName;
+            startGame = shouldStartGame;
 
             ManipList manipList = new ManipList();
             timeAdjustedForOffset = false;
@@ -186,7 +193,12 @@ namespace CTManip
 
             SetDate(targetManip);
 
-            Process.Start(psi);
+            // Only start the game if startGame is true
+            if (startGame)
+            {
+                Process.Start(psi);
+            }
+
             int buffer = 0;
             int attempts = 0;
             // Stop if there's a crash or the game takes too long to start
