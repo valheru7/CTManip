@@ -39,7 +39,7 @@ namespace CTManip
                 { ManipNames.RustRubbles, RustRubbles },
                 { ManipNames.RustTyranno, RustTyranno },
                 { ManipNames.SonOfSun, SonOfSun },
-                { ManipNames.YakraXIII, RainbowPudding },
+                { ManipNames.YakraXIII, Yakra13th },
                 { ManipNames.BlackOmen, BlackOmen },
                 { ManipNames.LavosShell, LavosShell },
                 { ManipNames.LavosCore, LavosCore },
@@ -221,6 +221,8 @@ namespace CTManip
         private Manip RustTyranno() { return new Manip(ManipController.TimeZones.GMT, 10, 04, 21, 19, 43, 18); }      
         // Son of Sun - Always #5 (after initial barrier and shuffle)
         private Manip SonOfSun() { return new Manip(ManipController.TimeZones.CEST, 29, 05, 25, 19, 24, 01); }
+        // Yakra hits Marle 2nd and Magus crits 3x
+        private Manip Yakra13th() { return new Manip(ManipController.TimeZones.UTC, 15, 07, 2023, 17, 12, 33); }
         // Ayla gets all her charms and 0 elevator + 1 elevator
         private Manip BlackOmen() { return new Manip(ManipController.TimeZones.CEST, 15, 03, 25, 14, 09, 01); }
         // Magus Shell -> Shadow

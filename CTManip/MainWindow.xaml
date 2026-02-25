@@ -73,8 +73,7 @@
                         <Button Width="150" Click="StartManip">Black Tyranno</Button>
                         <Button Width="150" Click="StartManip">Mud Imp</Button>
                         <Button Width="150" Click="StartManip">Ghosts</Button>
-                        <Button Width="150" Click="StartManip">Rust Tyranno</Button>
-                        <Button Width="150" Click="StartManip">Son of Sun</Button>
+                        <Button Width="150" Click="StartManip">Yakra XIII</Button>
                         <Button Width="150" Click="StartManip">Black Omen</Button>
                         <Button Width="150" Click="StartManip">Lavos Shell</Button>
                         <Button Width="150" Click="StartManip">Lavos Core</Button>
@@ -90,6 +89,8 @@
                         <Button Width="150" Click="StartManip">Woe Rubble</Button>
                         <Button Width="150" Click="StartManip">Golem Twins</Button>
                         <Button Width="150" Click="StartManip">Rust Rubbles</Button>
+                        <Button Width="150" Click="StartManip">Rust Tyranno</Button>
+                        <Button Width="150" Click="StartManip">Son of Sun</Button>
                     </StackPanel>
                 </Grid>
             </StackPanel>
