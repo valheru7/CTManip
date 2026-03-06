@@ -25,6 +25,7 @@ namespace CTManip
                 { ManipNames.Yakra, Yakra },
                 { ManipNames.Nagas, Nagas },
                 { ManipNames.DragonTank, DragonTank },
+                { ManipNames.Guardian, Guardian },
                 { ManipNames.Zombor, ZomborNoSilverEarring },
                 { ManipNames.Masamune, Masamune },
                 { ManipNames.Nizbel, Nizbel },
@@ -118,6 +119,7 @@ namespace CTManip
             Yakra,
             Nagas,
             DragonTank,
+            Guardian,
             Zombor,
             Masamune,
             Nizbel,
@@ -173,12 +175,14 @@ namespace CTManip
 
         // CT
         // New Game with no Xstrike grind (less encounters)
-        // Goes up through Dragon Tank but requires an extra room transition before the fight
-        private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 13, 10, 2004, 01, 39, 00); }
+        // Goes up through Nizbel 1
+        private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 08, 09, 1988, 08, 29, 01); }
         // Yakra backup (untested)
         private Manip Yakra() { return new Manip(ManipController.TimeZones.ET, 14, 11, 2023, 17, 20, 53); }
         // Dragon Tank backup
         private Manip DragonTank() { return new Manip(ManipController.TimeZones.UTC, 08, 05, 2031, 21, 05, 17); }
+        // Guardian backup (untested)
+         private Manip Guardian() { return new Manip(ManipController.TimeZones.UTC, 15, 07, 2023, 17, 11, 59); }
         // New game with Xstrike grind. Includes 1 DT crit but requires the extra room transition beforehand
         private Manip NewGameCT_XstrikeGrind() { return new Manip(ManipController.TimeZones.UTC, 29, 06, 2016, 01, 54, 57); }
         // Nagas backup
@@ -208,7 +212,9 @@ namespace CTManip
         // 0 counter, 0 counters, 0 counters
         // Frog crits next 2 fights
         // This should also have a decent seed for rust rubbles ?
-        private Manip Ghosts() { return new Manip(ManipController.TimeZones.UTC, 14, 10, 2023, 10, 50, 05); }
+        // Rust Tyranno guarantees + crits
+        // Son of Sun manip included
+        private Manip Ghosts() { return new Manip(ManipController.TimeZones.UTC, 21, 09, 2010, 14, 58, 07); }
         // Rust Rubble backup
         // Ghosts 
         // 1 counter, 0 counters, 2 counters
