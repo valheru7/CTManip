@@ -6,6 +6,7 @@ using System.Windows;
 using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace CTManip
 {
@@ -250,6 +251,25 @@ namespace CTManip
             }
         }
 
+        private TextBox? FindTextBoxRecursive(DependencyObject parent)
+        {
+            int childCount = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < childCount; i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(parent, i);
+                if (child is TextBox textBox)
+                {
+                    return textBox;
+                }
+                TextBox? found = FindTextBoxRecursive(child);
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+            return null;
+        }
+
         private void BaseRngTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -260,16 +280,8 @@ namespace CTManip
 
         private void ExecuteBaseRngManip(object sender, RoutedEventArgs e)
         {
-            // Find the text box in the current panel
-            TextBox? textBox = null;
-            foreach (var child in ManipButtonsPanel.Children)
-            {
-                if (child is TextBox tb)
-                {
-                    textBox = tb;
-                    break;
-                }
-            }
+            // Find the text box in the current panel recursively
+            TextBox? textBox = FindTextBoxRecursive(ManipButtonsPanel);
 
             if (textBox == null)
             {
