@@ -27,6 +27,7 @@ namespace CTManip
                 { ManipNames.DragonTank, DragonTank },
                 { ManipNames.Guardian, Guardian },
                 { ManipNames.Zombor, ZomborNoSilverEarring },
+                { ManipNames.ZomborSilverEarring, Zombor },
                 { ManipNames.Masamune, Masamune },
                 { ManipNames.Nizbel, Nizbel },
                 { ManipNames.Flea, Flea },
@@ -121,6 +122,7 @@ namespace CTManip
             DragonTank,
             Guardian,
             Zombor,
+            ZomborSilverEarring,
             Masamune,
             Nizbel,
             Flea,
@@ -175,7 +177,7 @@ namespace CTManip
 
         // CT
         // New Game with no Xstrike grind (less encounters)
-        // Goes up through Nizbel 1
+        // Goes up through Nizbel 1 and skips siler earring.
         private Manip NewGameCT() { return new Manip(ManipController.TimeZones.UTC, 08, 09, 1988, 08, 29, 01); }
         // Yakra backup (untested)
         private Manip Yakra() { return new Manip(ManipController.TimeZones.ET, 14, 11, 2023, 17, 20, 53); }
@@ -214,7 +216,15 @@ namespace CTManip
         // This should also have a decent seed for rust rubbles ?
         // Rust Tyranno guarantees + crits
         // Son of Sun manip included
-        private Manip Ghosts() { return new Manip(ManipController.TimeZones.UTC, 21, 09, 2010, 14, 58, 07); }
+        private Manip Ghosts() { return new Manip(ManipController.TimeZones.UTC, 14, 10, 2023, 10, 50, 05); }
+        // Ghosts 
+        // 0 counter, 0 counters, 0 counters
+        // Frog crits next 2 fights
+        // Includes Ozzie manip battle right after getting Magus' gear
+        // This should also have a decent seed for rust rubbles ?
+        // Rust Tyranno guarantees + crits
+        // Son of Sun manip included
+        private Manip GhostsWithOzzie() { return new Manip(ManipController.TimeZones.UTC, 21, 09, 2010, 14, 58, 07); }
         // Rust Rubble backup
         // Ghosts 
         // 1 counter, 0 counters, 2 counters
