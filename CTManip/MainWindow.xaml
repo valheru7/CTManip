@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:CTManip"
         mc:Ignorable="d"
-    Title="CTManip" Height="Auto" SizeToContent="WidthAndHeight">
+    Title="CTManip" Height="Auto" SizeToContent="WidthAndHeight" MinWidth="600" MinHeight="400">
     
     <!--Tab background colour styling-->
     <Window.Resources>

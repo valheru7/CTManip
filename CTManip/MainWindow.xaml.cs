@@ -22,7 +22,7 @@ namespace CTManip
             }
         }
         public ManipController ManipController;
-        public static string systemDateFormat;
+        public static string systemDateFormat = "";
         private bool isBaseRngMode = false;
     // offset removed
 
@@ -87,9 +87,9 @@ namespace CTManip
                 { "Lavos Core", ManipList.ManipNames.LavosCore }
             };
             
-            string? buttonText = (args.Source as Button).Content.ToString(); // Text on the button
+            string? buttonText = (args.Source as Button)?.Content?.ToString(); // Text on the button
             
-            if (inputToManipMap.ContainsKey(buttonText))
+            if (buttonText != null && inputToManipMap.ContainsKey(buttonText))
             { 
                 bool shouldStartGame = StartGameCheckBox.IsChecked ?? true;
                 ManipController.ExecuteManip(inputToManipMap[buttonText], shouldStartGame);
@@ -112,7 +112,17 @@ namespace CTManip
 
             if (isBaseRngMode)
             {
-                // Create BaseRNG input interface
+                // Clear grid definitions for BaseRNG mode
+                ManipButtonsPanel.RowDefinitions.Clear();
+                ManipButtonsPanel.ColumnDefinitions.Clear();
+                
+                // Create BaseRNG input interface in a StackPanel
+                var baseRngPanel = new StackPanel
+                {
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+
                 var label = new Label
                 {
                     Content = "Enter BaseRNG value (01-FF):",
@@ -136,10 +146,11 @@ namespace CTManip
                 var executeButton = new Button
                 {
                     Content = "Execute",
-                    Width = 50,
-                    Height = 30,
+                    Width = 100,
+                    Height = 35,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    Margin = new Thickness(0, 10, 0, 10)
+                    Margin = new Thickness(0, 10, 0, 10),
+                    FontSize = 14
                 };
                 executeButton.Click += ExecuteBaseRngManip;
 
@@ -152,32 +163,90 @@ namespace CTManip
                     Margin = new Thickness(0, 0, 0, 10)
                 };
 
-                ManipButtonsPanel.Children.Add(label);
-                ManipButtonsPanel.Children.Add(textBox);
-                ManipButtonsPanel.Children.Add(executeButton);
-                ManipButtonsPanel.Children.Add(instructionLabel);
+                baseRngPanel.Children.Add(label);
+                baseRngPanel.Children.Add(textBox);
+                baseRngPanel.Children.Add(executeButton);
+                baseRngPanel.Children.Add(instructionLabel);
+
+                ManipButtonsPanel.Children.Add(baseRngPanel);
             }
             else
             {
-                var normalManips = new[]
-                {
-                    "New Game", "Nagas", "Masamune", "Nizbel", "Flea", "Magus", "Nizbel 2",
-                    "Black Tyranno", "Woe Rubble", "Golem Twins", "Ghosts",
-                    "Rust Rubbles", "Rust Tyranno", "Son of Sun", "Yakra XIII",
-                    "Black Omen", "Lavos Shell", "Lavos Core"
-                };
+                // Recreate the two-column layout for normal manips
+                ManipButtonsPanel.RowDefinitions.Clear();
+                ManipButtonsPanel.ColumnDefinitions.Clear();
+                ManipButtonsPanel.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                ManipButtonsPanel.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                ManipButtonsPanel.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                ManipButtonsPanel.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
-                foreach (var manip in normalManips)
+                // Main column header
+                var mainHeader = new TextBlock
+                {
+                    Text = "Main",
+                    FontWeight = FontWeights.Bold,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Margin = new Thickness(0, 0, 0, 6)
+                };
+                Grid.SetRow(mainHeader, 0);
+                Grid.SetColumn(mainHeader, 0);
+                ManipButtonsPanel.Children.Add(mainHeader);
+
+                // Backup column header
+                var backupHeader = new TextBlock
+                {
+                    Text = "Backup",
+                    FontWeight = FontWeights.Bold,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Margin = new Thickness(0, 0, 0, 6)
+                };
+                Grid.SetRow(backupHeader, 0);
+                Grid.SetColumn(backupHeader, 1);
+                ManipButtonsPanel.Children.Add(backupHeader);
+
+                // Main column buttons
+                var mainManips = new[] { "New Game", "Zombor", "Flea", "Nizbel 2", "Mud Imp", "Ghosts", "Yakra XIII", "Black Omen", "Lavos Shell", "Lavos Core" };
+                var mainStackPanel = new StackPanel();
+                foreach (var manip in mainManips)
                 {
                     var button = new Button
                     {
                         Width = 150,
                         Content = manip,
-                        Margin = new Thickness(0, 5, 0, 0)
+                        Margin = new Thickness(8),
+                        MinWidth = 200,
+                        MinHeight = 36,
+                        FontSize = 14,
+                        Padding = new Thickness(12, 8, 12, 8)
                     };
                     button.Click += StartManip;
-                    ManipButtonsPanel.Children.Add(button);
+                    mainStackPanel.Children.Add(button);
                 }
+                Grid.SetRow(mainStackPanel, 1);
+                Grid.SetColumn(mainStackPanel, 0);
+                ManipButtonsPanel.Children.Add(mainStackPanel);
+
+                // Backup column buttons
+                var backupManips = new[] { "New Game Xstrike", "Nagas", "Dragon Tank", "Guardian", "Masamune", "Nizbel", "Magus", "Black Tyranno", "Woe Rubble", "Golem Twins", "Rust Rubbles", "Rust Tyranno", "Son of Sun" };
+                var backupStackPanel = new StackPanel();
+                foreach (var manip in backupManips)
+                {
+                    var button = new Button
+                    {
+                        Width = 150,
+                        Content = manip,
+                        Margin = new Thickness(8),
+                        MinWidth = 200,
+                        MinHeight = 36,
+                        FontSize = 14,
+                        Padding = new Thickness(12, 8, 12, 8)
+                    };
+                    button.Click += StartManip;
+                    backupStackPanel.Children.Add(button);
+                }
+                Grid.SetRow(backupStackPanel, 1);
+                Grid.SetColumn(backupStackPanel, 1);
+                ManipButtonsPanel.Children.Add(backupStackPanel);
             }
         }
 
@@ -192,7 +261,7 @@ namespace CTManip
         private void ExecuteBaseRngManip(object sender, RoutedEventArgs e)
         {
             // Find the text box in the current panel
-            TextBox textBox = null;
+            TextBox? textBox = null;
             foreach (var child in ManipButtonsPanel.Children)
             {
                 if (child is TextBox tb)
