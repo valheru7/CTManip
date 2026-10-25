@@ -2,12 +2,21 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net7.0-windows</TargetFramework>
+        <TargetFramework>net10.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <LangVersion>10</LangVersion>
         <AssemblyName>CTManip</AssemblyName>
         <RootNamespace>CTManip</RootNamespace>
+        <!-- Release builds are one self-contained, compressed exe, so players don't install .NET.
+             These used to live in a .pubxml on one PC; here, GitHub's build makes the same thing. -->
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <SelfContained>true</SelfContained>
+        <PublishSingleFile>true</PublishSingleFile>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <!-- Lets the project build on macOS and Linux too (it still only runs on Windows). -->
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <!-- Disable automatic generation of assembly attributes because we provide them in Properties/AssemblyInfo.cs -->
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>

@@ -1,0 +1,45 @@
+# Builds CTManip on every push. Pushing a version tag (like v1.5.2.2026.10.25.CT) also makes
+# the release zip and a draft GitHub release to review and publish.
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write # creating the draft release
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Publish
+        run: dotnet publish CTManip/CTManip.csproj -c Release -o publish
+
+      - name: Zip
+        shell: pwsh
+        run: |
+          # Tag v1.5.2.2026.10.25.CT makes CTManip_v1.5.2.2026.10.25.zip, like the earlier releases.
+          $name = if ($env:GITHUB_REF_TYPE -eq 'tag') { $env:GITHUB_REF_NAME -replace '\.CT$', '' } else { "build-$($env:GITHUB_SHA.Substring(0, 7))" }
+          Compress-Archive -Path publish/CTManip.exe -DestinationPath "CTManip_$name.zip"
+          Get-ChildItem CTManip_*.zip | Format-Table Name, Length
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CTManip
+          path: CTManip_*.zip
+
+      - name: Draft release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: CTManip_*.zip

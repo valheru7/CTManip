@@ -15,7 +15,7 @@ This is due to the required admin privileges in configuring date and time.
 If you run into issues, you will lose internet access - see Troubleshooting below.
 
 Download the latest release from the [Releases page](https://github.com/valheru7/CTManip/releases) \
-.NET 7 or higher required. You should be prompted to download it automatically if you don't already have it.
+It's a single `CTManip.exe` with everything it needs built in. You don't need to install .NET.
 
 1. Have Chrono Trigger on a save or autosave you want to manipulate
 2. ALT-F4 / Close the game
