@@ -29,7 +29,7 @@ Your date, time and time zone are set when you click, and put back automatically
 ### Options
 
 - **Auto start game** (on by default): CTManip starts the game for you. Turn it off to start the game yourself, but start it right away: if the game isn't running within about 6 seconds, CTManip gives up and puts your clock back.
-- **Main and Backup**: many manips have a backup timing next to the main one.
+- **Main and Backup**: the manips are split into two columns, Main and Backup.
 - **Debug → Base RNG**: enter a base RNG value (01–FF) to set up that value directly instead of using a named manip.
 
 ## Troubleshooting
