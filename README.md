@@ -14,6 +14,19 @@ A manip tool for **Chrono Trigger on PC (Steam)**. Pick a manip, and CTManip set
 Which manip to use when, and the scripts that go with each seed, are written up here:
 **[Chrono Trigger PC - 100% RNG Manip Simple walkthrough](https://staging.onemus.net/speedruns/ct/rng-manip-100-simple/newgame/)**
 
+### What each manip covers
+
+Most Main manips set a seed that carries through several fights, so one click covers all of these:
+
+| Manip | Covers |
+| --- | --- |
+| New Game | Nagas, Yakra, Dragon Tank, Zombor, Masamune, Nizbel |
+| Zombor (backup) | Masamune, Nizbel |
+| Flea | Slash, Magus |
+| Nizbel 2 | Black Tyranno (Azala sleeps on the first try) |
+| Mud Imp | Golem Twins |
+| Ghosts | Rust Tyranno, Son of Sun |
+
 ## Download
 
 Get the latest `CTManip_v….zip` from the [Releases page](https://github.com/valheru7/CTManip/releases) and unzip it. It's a single `CTManip.exe` with everything built in, so there's nothing else to install.
