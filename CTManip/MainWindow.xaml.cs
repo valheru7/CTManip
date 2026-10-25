@@ -206,7 +206,7 @@ namespace CTManip
                 ManipButtonsPanel.Children.Add(backupHeader);
 
                 // Main column buttons
-                var mainManips = new[] { "New Game", "Zombor", "Flea", "Nizbel 2", "Mud Imp", "Ghosts", "Yakra XIII", "Black Omen", "Lavos Shell", "Lavos Core" };
+                var mainManips = new[] { "New Game", "Zombor", "Zombor Silver", "Flea", "Nizbel 2", "Mud Imp", "Ghosts", "Yakra XIII", "Black Omen", "Lavos Shell", "Lavos Core" };
                 var mainStackPanel = new StackPanel();
                 foreach (var manip in mainManips)
                 {
