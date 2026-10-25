@@ -40,9 +40,22 @@ Get the latest `CTManip_v….zip` from the [Releases page](https://github.com/va
 1. In Chrono Trigger, get to the save, autosave or Resume bookmark you want to manip from.
 2. Close the game (Alt+F4).
 3. In CTManip, click the manip you want.
-4. CTManip starts the game through Steam. Load your save (or Resume bookmark).
+4. CTManip starts the game through Steam (or start it yourself, see [Steam or no Steam](#steam-or-no-steam)). Load your save (or Resume bookmark).
 
 Your date, time and time zone are set when you click, and put back automatically a moment after the game starts.
+
+### Steam or no Steam
+
+**With Steam** (Auto start game on):
+
+- Put Steam in **Offline Mode** first (Steam menu → **Go Offline**). Online, Steam reacts badly to the date and time changing.
+- CTManip starts the game through Steam for you.
+
+**Without Steam** (Auto start game off):
+
+- Run the Chrono Trigger exe directly. Uncheck **Auto start game**, click the manip, then start the game right away.
+- This can be a bit quicker than going through Steam.
+- Steam's turbo isn't there, so you'll need another tool for it, such as JoyToKey.
 
 ### Options
 
