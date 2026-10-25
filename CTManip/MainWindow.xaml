@@ -78,6 +78,7 @@
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <Button Width="150" Click="StartManip">New Game</Button>
                         <Button Width="150" Click="StartManip">Zombor</Button>
+                        <Button Width="150" Click="StartManip">Zombor Silver</Button>
                         <Button Width="150" Click="StartManip">Flea</Button>
                         <Button Width="150" Click="StartManip">Nizbel 2</Button>
                         <Button Width="150" Click="StartManip">Mud Imp</Button>

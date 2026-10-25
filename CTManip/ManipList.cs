@@ -194,7 +194,7 @@ namespace CTManip
         // Zombor up through Nizbel (less room transitions , skips silver earring)
         private Manip ZomborNoSilverEarring() {return new Manip(ManipController.TimeZones.UTC, 01, 07, 2031, 07, 10, 41); }  
         // Zombor up through Nizbel (requires silver earring)
-        private Manip Zombor() {return new Manip(ManipController.TimeZones.UTC, 12, 08, 2017, 04, 57, 06); }  
+        private Manip Zombor() {return new Manip(ManipController.TimeZones.UTC, 11, 11, 2017, 21, 50, 14); }  
         // Nizbel backup (tons of Ayla crits)
         private Manip Nizbel() {return new Manip(ManipController.TimeZones.UTC, 23, 08, 2026, 15, 57, 50); }  
         // Flea + Slash + Magus (6 heals after Flea for Slash)
