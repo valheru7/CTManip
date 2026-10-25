@@ -1,37 +1,57 @@
-# Chrono Trigger PC Manip Tool
-This tool assists with system time configuration for Chrono Trigger PC / Steam.\
-**Windows only** - Windows versions older than Windows 10 are untested and unsupported.
+# CTManip
 
-### Warning: Altering system time may cause severe issues, including data loss, software malfunction, network problems, and instability.
-### I do not assume responsibility for any resulting damage.
-**Proceed with caution.**
+A manip tool for **Chrono Trigger on PC (Steam)**. Pick a manip, and CTManip sets your system date, time and time zone to the values that manip needs, starts the game, and puts your clock back once the game is running.
 
+**Windows 10 or newer only.** Older Windows versions are untested and unsupported.
+
+> [!WARNING]
+> CTManip changes your system clock. Changing the clock can cause data loss, broken software, network problems and instability. Use it at your own risk; I take no responsibility for any damage.
 
 ![CTManip screenshot](ctmanip.png)
 
-## Usage:
-**UAC (User Account Control) MUST BE DISABLED**
-This is due to the required admin privileges in configuring date and time.
-If you run into issues, you will lose internet access - see Troubleshooting below.
+## Download
 
-Download the latest release from the [Releases page](https://github.com/valheru7/CTManip/releases) \
-It's a single `CTManip.exe` with everything it needs built in. You don't need to install .NET.
+Get the latest `CTManip_v….zip` from the [Releases page](https://github.com/valheru7/CTManip/releases) and unzip it. It's a single `CTManip.exe` with everything built in, so there's nothing else to install.
 
-1. Have Chrono Trigger on a save or autosave you want to manipulate
-2. ALT-F4 / Close the game
-3. Click the manip you want to use on this tool
-4. Open Chrono Trigger and load your save (or Resume bookmark)
+## Before you start: turn off UAC
 
-System time and date should be set when clicking the button.\
-System time and date should automatically revert when the game is launched.
+**User Account Control (UAC) must be turned off.** Changing the date and time needs admin rights. If something goes wrong, you can lose internet access until your clock is fixed (see [Troubleshooting](#troubleshooting)).
 
-**Troubleshooting:**
-* Loss of internet access:
- Open CMD as administrator and run "w32tm /resync"
-* If time is not being resynced automatically, try registering w32tm:\
- Open CMD as administrator and run "w32tm /register"
-* Wrong timezone after closing the program:
- Right-click system time -> Adjust Date & Time -> Change Time zone
+## Use it
 
-**Attributions**
-Based on the wonderous work from [F34Manip](https://github.com/Ricky-James/FF34Manip) 
+1. In Chrono Trigger, get to the save, autosave or Resume bookmark you want to manip from.
+2. Close the game (Alt+F4).
+3. In CTManip, click the manip you want.
+4. CTManip starts the game through Steam. Load your save (or Resume bookmark).
+
+Your date, time and time zone are set when you click, and put back automatically a moment after the game starts.
+
+### Options
+
+- **Auto start game** (on by default): CTManip starts the game for you. Turn it off to start the game yourself, but start it right away: if the game isn't running within about 6 seconds, CTManip gives up and puts your clock back.
+- **Main and Backup**: many manips have a backup timing next to the main one.
+- **Debug → Base RNG**: enter a base RNG value (01–FF) to set up that value directly instead of using a named manip.
+
+## Troubleshooting
+
+All of these commands go in a **Command Prompt opened as administrator**.
+
+| Problem | Fix |
+| --- | --- |
+| No internet after a manip | Run `w32tm /resync` |
+| The clock doesn't fix itself | Run `w32tm /register`, then `w32tm /resync` |
+| Wrong time zone after closing CTManip | Right-click the clock in the taskbar → **Adjust date and time** → set your time zone |
+
+## Building from source
+
+CTManip is a WPF app on .NET 10. With the .NET 10 SDK on Windows:
+
+```
+dotnet publish CTManip/CTManip.csproj -c Release
+```
+
+That makes the same single, self-contained `CTManip.exe` as the releases. GitHub builds every push, and pushing a version tag (like `v1.5.2.2026.10.25.CT`) makes the release zip and a draft release.
+
+## Credits
+
+Based on the wonderful work in [FF34Manip](https://github.com/Ricky-James/FF34Manip) by Ricky James.
