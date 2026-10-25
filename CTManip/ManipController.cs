@@ -201,10 +201,13 @@ namespace CTManip
 
             int buffer = 0;
             int attempts = 0;
-            // Stop if there's a crash or the game takes too long to start
-            while (buffer < 25 && attempts < 150)
+            // Stop if there's a crash or the game takes too long to start.
+            // The try is around the whole loop, not inside it: if setting the time fails (say UAC
+            // blocks it), neither counter moves, so retrying would loop forever, flipping the
+            // clock between the manip time and the real time.
+            try
             {
-                try
+                while (buffer < 25 && attempts < 150)
                 {
                     SetTime(targetManip);
                     if (GameRunning())
@@ -217,10 +220,10 @@ namespace CTManip
                     }
                     Thread.Sleep(40);
                 }
-                catch
-                {
-                    RevertTime();
-                }
+            }
+            catch
+            {
+                // Fall through and put the clock back once.
             }
             RevertTime();
         }
