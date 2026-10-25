@@ -9,6 +9,11 @@ A manip tool for **Chrono Trigger on PC (Steam)**. Pick a manip, and CTManip set
 
 ![CTManip screenshot](ctmanip.png)
 
+## The manips and route
+
+Which manip to use when, and the scripts that go with each seed, are written up here:
+**[Chrono Trigger PC - 100% RNG Manip Simple walkthrough](https://staging.onemus.net/speedruns/ct/rng-manip-100-simple/newgame/)**
+
 ## Download
 
 Get the latest `CTManip_v….zip` from the [Releases page](https://github.com/valheru7/CTManip/releases) and unzip it. It's a single `CTManip.exe` with everything built in, so there's nothing else to install.
@@ -29,8 +34,8 @@ Your date, time and time zone are set when you click, and put back automatically
 ### Options
 
 - **Auto start game** (on by default): CTManip starts the game for you. Turn it off to start the game yourself, but start it right away: if the game isn't running within about 6 seconds, CTManip gives up and puts your clock back.
-- **Main and Backup**: the manips are split into two columns, Main and Backup.
-- **Debug → Base RNG**: enter a base RNG value (01–FF) to set up that value directly instead of using a named manip.
+- **Main and Backup**: Main manips set up a seed that carries through several fights (New Game, for example, follows all the way through Nizbel 1). Backup manips mostly cover one fight and don't follow the whole seed; use them to get back on track.
+- **Debug → Base RNG**: runs a manip for any of the 255 possible starting battle RNG values. Enter the value in hex (01–FF).
 
 ## Troubleshooting
 
@@ -54,4 +59,5 @@ That makes the same single, self-contained `CTManip.exe` as the releases. GitHub
 
 ## Credits
 
-Based on the wonderful work in [FF34Manip](https://github.com/Ricky-James/FF34Manip) by Ricky James.
+- Based on the wonderful work in [FF34Manip](https://github.com/Ricky-James/FF34Manip) by Ricky James.
+- [OnemusCT](https://github.com/OnemusCT): the post-launch timing buffer, the Base RNG debug menu, and the manip route write-up.
