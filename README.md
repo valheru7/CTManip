@@ -21,7 +21,8 @@ Most Main manips set a seed that carries through several fights, so one click co
 | Manip | Covers |
 | --- | --- |
 | New Game | Nagas, Yakra, Dragon Tank, Zombor, Masamune, Nizbel |
-| Zombor (backup) | Masamune, Nizbel |
+| Zombor (backup) | Masamune, Nizbel (skips the Silver Earring, fewer room transitions) |
+| Zombor Silver | Masamune, Nizbel, for a route that picks up the Silver Earring |
 | Flea | Slash, Magus |
 | Nizbel 2 | Black Tyranno (Azala sleeps on the first try) |
 | Mud Imp | Golem Twins |
